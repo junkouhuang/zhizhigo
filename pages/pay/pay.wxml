@@ -1,0 +1,87 @@
+<import src="/toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<view class="pay">
+
+  <view class="title">
+    <view class="title_txt">等待付款</view>
+    <view class="title_money">
+      <text class="title_money_symbol">￥</text> {{zzmcTotalFeezj}}
+    </view>
+  </view>
+
+  <!--微信支付-->
+  <view catchtap="iconWx" class="wx_pay" >
+    <i class="icon {{payment_mode==1?'active':''}}" type="String"></i>
+    <text>微信支付</text>
+  </view>
+  <!--值值宝支付-->
+  <view catchtap="iconWallet" class="wx_pay" wx:if="{{sign=='order'||sign=='goods'}}">
+    <i class="icon {{payment_mode==2?'active':''}}" type="String"></i>
+    <text>值值宝支付</text>
+  </view>
+  <view catchtap="iconWy" class="wx_pay" >
+    <i class="icon {{payment_mode==3?'active':''}}" type="String"></i>
+    <text>快捷支付</text>
+  </view>
+  <view class="pay_detail">
+  </view>
+
+  <view bindtap='nextFun' class="save {{btnGet}}" wx:if="{{isCanClick}}"  hover-class="clicked">
+    <image src="/images/index/loading3.gif" hidden='{{payBtnLoading}}'></image>确定
+  </view>
+  <view  class="save {{btnGet}}"   hover-class="clicked" wx:else>
+    <image src="/images/index/loading3.gif" hidden='{{payBtnLoading}}'></image>确定
+  </view>
+
+  <view class="pay_detail_content" wx:if="{{sign=='order'||sign=='goods'}}">
+    <view class="pay_detail_content_title">
+      <view class="pay_detail_content_title_dh">订单号</view>
+      <view class="pay_detail_content_title_je">金额</view>
+      <view class="pay_detail_content_title_sj">创建时间</view>
+    </view>
+    <view wx:for="{{orderTable}}" wx:for-item="items" class="pay_detail_content_title">
+      <view class="pay_detail_content_title_ordercode">{{items.ordercode}}</view>
+      <view class="pay_detail_content_title_orderamount">{{items.orderamount}}</view>
+      <view class="pay_detail_content_title_createtime">{{items.createtime}}</view>
+    </view>
+  </view>
+</view>
+
+<!--输入钱包密码-->
+<view wx:if="{{wallets_password_flag}}" class="wallets-password">
+  <view class="input-content-wrap">
+    <view class="top">
+      <view catchtap="close_wallets_password" class="close">×</view>
+      <view class="txt">请输入值值钱包密码</view>
+      <view catchtap="modify_password" class="forget">
+        <!--忘记密码-->
+      </view>
+    </view>
+    <view class="actual_fee">
+      <span>￥</span>
+      <text>{{zzmcTotalFeezj}}</text>
+    </view>
+    <view catchtap="set_Focus" class="input-password-wrap">
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=1}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=2}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=3}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=4}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=5}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=6}}"></i>
+      </view>
+    </view>
+  </view>
+  <input bindinput="set_wallets_password" class="input-content" password type="number" focus="{{isFocus}}" maxlength="6" />
+
+</view>

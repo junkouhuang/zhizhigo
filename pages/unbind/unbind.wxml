@@ -1,0 +1,11 @@
+<import src="../../toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<view>
+  <view class="unbind">
+    <view bindtap="getCodeFun">银行卡解绑</view>
+    <view>
+      <input type='number' maxlength='19' bindinput='getCardFun' placeholder='请输入要解绑的银行卡号'></input>
+    </view>
+  </view>
+  <view class="next" bindtap='nextFun'  hover-class="clicked">下一步</view>
+</view>

@@ -1,0 +1,144 @@
+<import src="/toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<scroll-view>
+  <view class="swiper-container" wx:if="{{showProduce}}">
+
+    <!--视图组件-->
+    <view class="swiper-container">
+      <swiper class="swiper" interval="5000" duration="1000" circular="true" style='height:{{swiper_height}}px' bindchange="swiperChange" current="{{swiperCurrent}}">
+          <swiper-item wx:for="{{showProduce.imglist}}" wx:for-index="index">
+            <view style=" background-image:url(http://119.23.48.31/{{item.url}});" data-src="http://119.23.48.31/{{item.url}}" class="{{showProduce.fbstatus==9 || showProduce.fbstatus==10?'soldOut':''}}" bindtap="multipleTap" data-index="{{index}}" bindtouchstart="touchStart"
+              bindtouchend="touchEnd" bindload="imageLoad1"></view>
+          </swiper-item>
+      </swiper>
+      <span wx:if="{{showProduce.fbstatus==9 || showProduce.fbstatus==10}}"class="soldOutImg iconfont icon-haofangtuo400iconfontyixiajia"></span>
+      <view class="dots">
+          <view wx:for="{{showProduce.imglist}}" wx:key="unique" class="dot{{index == swiperCurrent? ' active' : ''}} {{showProduce.fbstatus==9 || showProduce.fbstatus==10?'remove_off_shelves':''}}"></view>
+      </view>
+    </view>
+
+    <!--商品属性-->
+    <view class="detail-title">{{showProduce.productname}}</view>
+    <view class="detail-price {{showProduce.fbstatus==9 || showProduce.fbstatus==10?'Out_Of_Stock':''}}">
+      <text class="symbol">￥</text>{{showProduce.sellprice}}
+    </view>
+    <view class="detail-productcode">
+      <text class="detail-productcode-text">{{showProduce.productcode}}</text>
+    </view>
+    <view class="detail-stylenum">折扣 {{showProduce.rate*10}} 折</view>
+    <view class="detail-dw-mini" wx:if="{{showProduce.dw!=null&&showProduce.dwdes==null}}">单位 {{showProduce.dw}}</view>
+    <view class="detail-dw-mini" wx:if="{{showProduce.dw!=null&&showProduce.dwdes!=null}}">单位 {{showProduce.dw}} ({{showProduce.dwdes}})</view>
+    <view class="detail-property">产品属性 {{showProduce.productattr==0?'常规退换货商品':'特殊不退不换商品'}}</view>
+    <view class="detail-xiangqing-jianjie {{selectColor}}" bindlongtap="longTap">
+      <span class="iconfont icon-fuzhi:before" bindtap='copyImgClick'></span>
+      <view class="detail-xiangqing-jianjie-pp" wx:if="{{showProduce.brand!='' && showProduce.brand!=null}}">
+        <view>
+          {{showProduce.brand}}
+        </view>
+      </view>
+      <view class="detail-xiangqing-jianjie-js" wx:if="{{showProduce.branddes!='' && showProduce.branddes!=null}}">
+        <view>
+          {{showProduce.branddes}}
+        </view>
+      </view>
+      <view class="detail-xiangqing-caizhi" wx:if="{{showProduce.cz!='' && showProduce.cz!=null}}">
+        <view>
+          {{showProduce.cz}}
+        </view>
+      </view>
+      <view class="detail-xiangqing-jianjie-ms" wx:if="{{showProduce.productdes!='' && showProduce.productdes!=null}}">
+        <view>
+          {{showProduce.productdes}}
+        </view>
+      </view>
+    </view>
+
+    <!--底部按钮-->
+    <view class="footer">
+      <view class="footer_btn">
+        <block wx:if="{{showProduce.total>0}}">
+          <navigator class="view-productcode" url="../listory/listory?batchid={{showProduce.batchid}}">查看历史订单</navigator>
+          <block wx:if="{{showProduce.fbstatus!=9 && showProduce.fbstatus!=10}}">
+            <text id="add" bindtap="buyCount">加入购物车</text>
+          </block>
+        </block>
+        <block wx:else>
+          <block wx:if="{{showProduce.fbstatus!=9 && showProduce.fbstatus!=10}}">
+            <view id="add" class="buyCount" bindtap="buyCount" hover-class="clicked">加入购物车</view>
+          </block>
+        </block>
+      </view>
+    </view>
+
+    <!--小菜单-->
+    <view class="list-fix-menu" hidden="{{!mengShow}}">
+      <view class="list-fix-dt">
+        <view class="list-fix-mini">
+          <image class="list-fix-mini-img" src="http://119.23.48.31/{{showProduce.imglist[0].url}}" data-index="0" bindload="imageLoad2" style="width:{{ images2[0].width }}px; height:{{ images2[0].height }}px;"></image>
+        </view>
+        <view class="list-fix-menu-name">
+          <view class="list-fix-menu-title">{{showProduce.productname}}</view>
+          <view class="list-fix-menu-price">
+            <text class="symbol">￥</text>{{showProduce.sellprice}}</view>
+          <view class="detail-dw-mini" wx:if="{{showProduce.dw!=null&&showProduce.dwdes==null}}">单位 {{showProduce.dw}}</view>
+          <view class="detail-dw-mini" wx:if="{{showProduce.dw!=null&&showProduce.dwdes!=null}}">单位 {{showProduce.dw}} ({{showProduce.dwdes}})</view>
+          <view class="list-fix-menu-title-close-btn" bindtap='close'>
+            <span class="list-fix-menu-title-close-img iconfont icon-shanchu4" ></span>
+          </view>
+        </view>
+      </view>
+      <view class="buy_box">
+        <view class="buy_box_header">
+          <text class="buy_box_header_ys">颜色</text>
+          <text class="buy_box_header_cm">尺码</text>
+          <text class="buy_box_header_sl">数量</text>
+          <text class="buy_box_header_mfsl">每份数量</text>
+          <text class="buy_box_header_kc">库存</text>
+        </view>
+        <view class="buy_box_content">
+        <block wx:for="{{showProduce.detaillist}}" wx:for-item="item">
+          <view class="buy_box_area {{item.stock>0?'':'zero_stock'}}">
+            <view class="buy_box_ys">{{item.batchys}}</view>
+            <view class="buy_box_cm">{{item.batchcm}}</view>
+            <view class="buy_box_sl" data-food-id="{{index}}">
+              <view name="sub" class="buy_box_sl_sub" data-food-id="{{index}}" bindtap='sub'>-</view>
+              <view class="buy_box_sl_text">
+                <input name="inputsl" type="number" value="{{spData[index]}}" data-food-id="{{index}}" bindinput="inputsl" bindblur='inputblur' />
+              </view>
+              <view name="add" class="buy_box_sl_add" data-food-id="{{index}}" bindtap='add'>+</view>
+            </view>
+            <view class="buy_box_mfsl">{{item.mfsl}}</view>
+            <view class="buy_box_kc" wx:if="{{item.stock!='' && item.stock!=null && item.stock>0}}">
+              <text class="stock">{{item.stock}}</text>
+              <text class="ratioNum" wx:if="{{item.ratio!=1}}">单笔限量{{item.ratioNum}}</text>
+            </view>
+            <view class="buy_box_kc" wx:else>0</view>
+          </view>
+        </block>
+        </view>
+        <button class="menu_btn toCart" bindtap="toCart" hover-class="clicked" wx:if="{{isCanClick}}">
+          <image src="/images/index/loading3.gif" hidden='{{detailBtnLoading}}'></image>加入购物车
+        </button>
+        <button class="menu_btn toCart"  hover-class="clicked" wx:else>
+          <image src="/images/index/loading3.gif" hidden='{{detailBtnLoading}}'></image>加入购物车
+        </button>
+      </view>
+    </view>
+
+    <!--显示小菜单蒙版-->
+    <view class="list-fix" bindtap='close' wx:if="{{mengShow}}">
+    </view>
+
+  </view>
+</scroll-view>
+
+<view class="bj" wx:if='{{bj}}'>
+  <import src="/loading/loading.wxml" />
+  <template is="wxLoading" data="{{...wxToastConfig}}"></template>
+</view>
+
+<view wx:if="{{noNetWork}}" class="no_network">
+  <view>网络繁忙，请稍候再试
+    <text bindtap='refresh'>刷新</text>
+  </view>
+</view>

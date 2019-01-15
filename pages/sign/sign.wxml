@@ -1,0 +1,76 @@
+<import src="../../toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<view>
+<form bindsubmit="submit">
+  <view class="card">
+    <text>选择银行卡类型</text>
+    <view class="accttype">
+      <text>卡类型</text>
+      <text bindtap='accttypeFun'>{{accttypeName}}</text>
+    </view>
+    <view class="acctno">
+      <text>卡号</text>
+      <view class="acctn"><input placeholder="储蓄卡/信用卡号" type='number' name="acctno" maxlength='19' /></view>
+    </view>
+  </view>
+  <view class="userInfo">
+    <text>填写银行预留信息</text>
+    <view class="acctname">
+      <text>户名</text>
+      <view class="hm"><input  placeholder='持卡人姓名' type="text" name="acctname" maxlength='16' /></view>
+    </view>
+    <view class="idno">
+      <text>证件号</text>
+      <view class="zjh"><input placeholder='身份证码' type='idcard' name="idno" maxlength='18' /></view>
+    </view>
+    <view class="mobile">
+      <text>手机号</text>
+      <view class="sjh"><input  placeholder='银行预留手机号' type='number' name="mobile" maxlength='11' /></view>
+    </view>
+    <view class="validdate" wx:if='{{showValiddateAndCvv2}}'>
+      <text>有效期</text>
+      <picker mode="multiSelector" value="{{dateTime}}"  bindchange="changeDateTime"  range="{{dateTimeArray}}">
+          <view class="tui-picker-detail1" wx:if='{{!validdateBoolean}}'>
+              卡正面有效期,月份/年份
+          </view>
+          <view class="tui-picker-detail" wx:if='{{validdateBoolean}}'>
+           {{month}}/{{year}}  <!--月年-->
+          </view>
+      </picker>
+    </view>
+    <view class="cvv2" wx:if='{{showValiddateAndCvv2}}'>
+      <text>cvv2</text>
+      <input placeholder='信用卡安全码' type='number' name="cvv2" maxlength='4'/>
+    </view>
+  </view>
+  <button class="next"  formType="submit"  hover-class="clicked">下一步</button>
+  <view class="login-footer">
+    <checkbox-group bindchange="agreeFun">
+      <label class="checkbox">
+        <checkbox  value="{{ckbox}}" />
+        <text class="agree-txt1">同意</text>
+        <text class="agree-txt2">《银行卡支付协议》</text>
+      </label>
+    </checkbox-group>
+  </view>
+</form>
+<view class="sel-accttype" hidden='{{accttypeHideOrShow}}'>
+  <view  class="sel-accttype-list">
+    <view  class="sel-accttype-list-header">
+      <view bindtap="depositFun" class="{{deposit}}">储蓄卡</view>
+      <view bindtap='creditFun' class="{{credit}}">信用卡</view>
+    </view>
+    <view  class="sel-accttype-list-body">
+        <view class="sel-accttype-list-body-item {{index==accttypeTarget?'accttypeHover':''}}" data-index="{{index}}"bindtap='accttypeClickFun'
+          wx:for="{{accttypeList}}"  wx:for-item="item" data-text="{{item.text}}">
+          <span class="{{item.icon}}"></span>
+          <text>{{item.text}}</text>
+        </view>
+    </view>
+    <view  class="sel-accttype-list-footer">
+      <view bindtap='cancelFun'  hover-class="clicked">取消</view>
+      <view bindtap='confirmFun'  hover-class="clicked">确定</view>
+    </view>
+  </view>
+</view>
+</view>

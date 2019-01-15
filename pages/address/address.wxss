@@ -1,0 +1,178 @@
+page {
+  background-color: #F2F1F1;
+  height:100%;
+}
+
+.address-list {
+	height: 100%;
+}
+
+.address-list-box {
+	margin-bottom: 6rpx;
+  background:#ffffff;
+  height:115rpx;
+  margin-top: 2rpx;
+  font-size:26rpx;
+  padding:20rpx 28rpx;
+}
+
+.address-list-box-name {
+  margin-top: 4rpx;
+  margin-bottom: 12rpx;
+}
+
+address-list-box-name-left {
+  width:50%;
+}
+
+address-list-box-name-left {
+  width:50%;
+}
+
+.address-list-box-bar {
+  background:#ffffff;
+  height:60rpx;
+  line-height: 60rpx;
+	margin-top: 2rpx;
+  margin-bottom: 20rpx;
+  font-size:26rpx;
+}
+
+.address-list-box-bar-default {
+  width:80%;
+  display: inline-block;
+}
+
+.address-list-box-bar-editor {
+  width:10%;
+  display: inline-block;
+}
+
+.address-list-box-bar-delete {
+  width:10%;
+  display: inline-block;
+}
+
+.addNewAddress-btn {
+  width:100%;
+  height:84rpx;
+  font-size:30rpx;
+  margin-top:8rpx;
+  position:fixed;
+  bottom: 0;
+  background:#53a24f;
+  color:#ffffff;
+  line-height: 84rpx;
+  text-align:center;
+}
+.address-list-box-name-left {
+    font-size:30rpx;
+}
+.address-list-box-name-right {
+   font-size:30rpx;
+}
+.address-list-box-addr {
+  font-size:30rpx;
+}
+
+.bar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row nowrap;
+  background:#ffffff; 
+}
+.default {
+  width:80%;
+  height:70rpx;
+  line-height:70rpx;
+  text-align: left;
+}
+.default icon {
+  width:40rpx;
+  height:40rpx;
+  top:8rpx;
+  left:20rpx;
+  position:relative;
+}
+.default text{
+  font-size: 28rpx;
+  margin-left:26rpx;
+  color:#53a24f;
+}
+.editor {
+  width:20%;
+  height:70rpx;
+  line-height:70rpx;
+}
+.editor span {
+  width:16px;
+  height: 32rpx;
+  position:relative;
+  top:2rpx;
+}
+.editor text{
+  font-size: 28rpx;
+  margin-left: 6rpx;
+}
+.delete {
+  width:20%;
+  height:70rpx;
+  line-height:70rpx;
+}
+.delete span {
+  width:32rpx;
+  height: 32rpx;
+  position:relative;
+  top:2rpx;
+}
+.delete text{
+  font-size: 28rpx;
+  margin-left: 6rpx;
+}
+
+.noclick_prev {
+  background: gray;
+  color: #fff;
+}
+
+.noclick_next {
+  background: gray;
+  color: #fff;
+}
+
+.no_network {
+  position:absolute;
+  top:0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.no_network view {
+  width: 100%;
+  text-align: center;
+  font-size: 30rpx;
+  color: #ccc;
+  position: absolute;
+  bottom: 50%;
+}
+
+.no_network text {
+  padding: 2rpx 8rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 24rpx;
+  width: 66rpx;
+  margin-left: 8rpx;
+}
+
+.bj {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 999;
+}

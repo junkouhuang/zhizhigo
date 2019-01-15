@@ -1,0 +1,49 @@
+.about {
+  width: 100%;
+  height: 200rpx;
+  margin-top: 100rpx;
+  text-align: center;
+}
+.about image {
+  width: 160rpx;
+  height: 160rpx;
+  transform:translate3d(0,0,0);
+  background-image: ('../images/zhizhi.png');
+}
+.about-item {
+	padding:10rpx 30rpx;
+}
+
+.about-item-title {
+	display: block;
+	font-size: 32rpx;
+	line-height: 60rpx;
+}
+
+.about-item-content {
+	margin-top: 10rpx;
+	display: block;
+	text-indent: 40rpx;
+}
+.about-item-beta{
+  background:#edf7ed;
+  color:#53a24f;
+  border-radius:5px;
+  padding:2rpx 8rpx;
+  font-size:12px;
+}
+.about-item-version {
+  color:#53a24f;
+  margin-top: 10rpx;
+	display: block;
+	text-indent: 40rpx;
+}
+
+.link {
+	color: #479de6;
+	text-decoration: underline;
+}
+navigator {
+  color: #479de6;
+  text-decoration: underline;
+}

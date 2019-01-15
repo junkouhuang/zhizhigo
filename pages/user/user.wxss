@@ -1,0 +1,222 @@
+/**index.wxss**/
+
+page {
+  background: #f1f1f1;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.userinfo {
+  align-items: center;
+  width: 100%;
+  background: #53a24f;
+}
+
+.userinfo-avatarUrl {
+  width: 30%;
+  text-align: right;
+  padding-top: 20rpx;
+  float: left;
+}
+
+.userinfo-avatarUrl button {
+  background: #53a24f;
+  color: #fff;
+  line-height: 1;
+  font-size: 30rpx;
+  padding-left: 67rpx;
+  padding-right: 0;
+}
+
+.userinfo-avatarUrl button::after {
+  border: none;
+}
+
+.userinfo-avatarUrl view {
+  font-size: 26rpx;
+  margin-right: 20rpx;
+  color: #fff;
+}
+
+.userinfo-nickName {
+  width: 69%;
+  height: 300rpx;
+  padding: 24rpx 0 0 0;
+  float: left;
+  margin-left: 1%;
+}
+
+.userinfo-avatar {
+  width: 170rpx;
+  height: 170rpx;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.userinfo-nickname {
+  color: #fff;
+  font-size: 34rpx;
+}
+
+.userinfo-flex {
+  display: flex;
+  flex-direction: column;
+  flex-flow: column-reverse;
+  width: 100%;
+  margin-top: 20rpx;
+}
+
+.userinfo-mdmc {
+  color: #fff;
+  font-size: 32rpx;
+  margin: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.userinfo-mdcode {
+  color: #fff;
+  font-size: 30rpx;
+  margin: 10rpx;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-flow: row wrap;
+}
+
+.mdcode {
+  width: 60%;
+  font-size:32rpx;
+}
+
+.userinfo-pwd {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row;
+  width: 40%;
+}
+
+.userinfo-pwd image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.userinfo-pwd text {
+  font-size: 26rpx;
+  color: #fff;
+}
+
+.usermotto {
+  margin-top: 400rpx;
+}
+
+.wode_item_wrap {
+  background-color: #fff;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  border-top: 2rpx solid #e5e5e5;
+  width: 95%;
+}
+
+.wode_mode {
+  width: 100%;
+  font-size: 36rpx;
+  background-color: #fff;
+}
+
+.wode_item {
+  height: 90rpx;
+  border-bottom: 2rpx solid #e5e5e5;
+  padding: 0 80rpx;
+  line-height: 90rpx;
+  position: relative;
+}
+
+.arrow_wrap_l {
+  position: absolute;
+  left:16rpx;
+  top: 2rpx;
+  font-size:50rpx
+}
+
+.arrow_wrap_r {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  right: 0;
+  top: 4rpx;
+  background-repeat: no-repeat;
+}
+
+.wode_out {
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background-color: #fff;
+  margin-top: 34rpx;
+  border-bottom: 2rpx solid #e5e5e5;
+  border-top: 2rpx solid #e5e5e5;
+  width: 100%;
+  font-size: 36rpx;
+}
+
+.wode_login {
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background-color: #fff;
+  margin-top: 20rpx;
+  border-bottom: 2rpx solid #e5e5e5;
+  border-top: 2rpx solid #e5e5e5;
+  width: 100%;
+  font-size: 36rpx;
+}
+
+.horizontal {
+  width: 100%;
+  height: 150rpx;
+  margin-top: 34rpx;
+  background-color: #ffffff;
+  display: flex;
+  flex-flow: row wrap;
+
+}
+.horizontal_item1 {
+  width: 25%;
+  height: 150rpx;
+  display: flex;
+  flex-flow: column wrap;
+  text-align:center;
+  font-size: 36rpx;
+}
+.horizontal_item1 span {
+  font-size: 50rpx;
+  margin-top:24rpx;
+}
+.horizontal_item1 text{
+  font-size: 32rpx;
+}
+.horizontal_item2 {
+  width: 25%;
+  height: 150rpx;
+  display: flex;
+  flex-flow: column wrap;
+  text-align:center;
+  font-size: 36rpx;
+}
+.horizontal_item2 span {
+  font-size: 50rpx;
+  margin-top:24rpx;
+}
+.horizontal_item2 text{
+  font-size: 32rpx;
+}

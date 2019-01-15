@@ -1,0 +1,3 @@
+<!--监听网络状态变化提示-->
+<import src="toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>

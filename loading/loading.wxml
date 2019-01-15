@@ -1,0 +1,5 @@
+<template name="wxLoading">
+        <view class="loader">
+            <image src="/images/loading/loading.png" class="loading"></image>
+        </view>
+</template>

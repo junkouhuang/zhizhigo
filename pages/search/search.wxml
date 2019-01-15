@@ -1,0 +1,19 @@
+<import src="../../toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<view class="search">
+      <view class="search-panel">
+        <view class="search-ico">
+          <icon type='search' size="18"></icon>
+        </view>
+        <view class="search-mc">
+          <input maxlength='12' bindinput='saveToStroge'  auto-focus='true' placeholder='按批次号/商品名搜索'/>
+        </view>
+      </view>
+      <view class="search-view" bindtap='searchBtn'  hover-class="clicked">搜索</view>
+</view>
+<view class="listory">
+  <view class="listory-txt"><text class='seek'>历史搜索</text><text class="clear" bindtap='clear'>清除</text></view>
+  <view class="listory-list" >
+    <view  wx:for="{{historyData2}}" ><text bindtap='listroyClick'data-lx="{{item.lx}}" data-value="{{item.name}}">{{item.name}}</text><span class="iconfont icon-cuowu" bindtap="sigleDel" data-index="{{index}}" data-name="{{item.name}}"></span></view>
+  </view>
+</view>

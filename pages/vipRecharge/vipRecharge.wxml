@@ -1,0 +1,26 @@
+<import src="../../toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<view>
+  <view class="cardNo">
+    <view class="vipCard"><input bindinput='getVipCard' placeholder='请输入会员卡号' maxlength='19' /></view>
+    <view bindtap='getViphyInfoByVipCard' class="getViphyInfoByVipCard" hover-class="clicked">查询</view>
+  </view>
+  <view class="viphyInfo">
+    <view>姓名<text>{{xm}}</text></view>
+    <view>卡余额<text>{{money}}</text></view>
+  </view>
+  <view class="rechargeMoney">
+  <text>充值金额</text>
+    <picker bindchange="selMoney" value="{{index}}" range="{{moneyArray}}">
+      <view class="moneyHintView" wx:if="{{moneyBoolean}}">
+        请选择充值金额
+      </view>
+      <view class="picker" wx:else>
+        {{moneyArray[index]}}元
+      </view>
+    </picker>
+  </view>
+  <view class="recharge"  >
+    <view bindtap="showDialogBtn" hover-class="clicked">去支付</view>
+  </view>
+</view>

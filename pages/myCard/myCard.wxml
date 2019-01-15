@@ -1,0 +1,28 @@
+<import src="../../toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<view class="card">
+  <view class="cardList" wx:if="{{bankList.length>0}}">
+    <view style='background-color:{{item.color}};'  wx:for="{{bankList}}">
+      <view class="title">
+        <view><span class="{{item.class}}"></span></view>
+        <view class="bank" wx:for-item="item">
+          <view>{{item.bankname}}</view>
+          <view class="type">{{item.accttype==00?'储蓄卡':'信用卡'}}</view>
+          <view class="cardNo">{{item.acctno}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="noCard">
+    <!--<span class="{{cardPic}}" ></span>-->
+    <p>暂无银行卡</p>
+  </view>
+  <view class="add" bindtap='addFun'  hover-class="clicked">
+    <span>+</span>
+    <text>添加银行卡</text>
+  </view>
+  <view class="add" bindtap='unbindFun'  hover-class="clicked">
+    <span>-</span>
+    <text>解绑银行卡</text>
+  </view>
+</view>

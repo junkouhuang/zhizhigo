@@ -1,0 +1,129 @@
+page {
+  width: 100%;
+  height: 100%;
+  background: #efeff2;
+}
+
+.wallet {
+  width: 100%;
+  height: 300rpx;
+  background: #53a24f;
+}
+
+.wallet-top {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  flex-direction: row;
+}
+
+.wallet-lq {
+  width: 33.3%;
+  height: 300rpx;
+  line-height: 300rpx;
+  display: flex;
+  flex-flow: column nowrap;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.wallet-lq-img {
+  width: 100%;
+  height: 164rpx;
+  position: relative;
+}
+
+.wallet-lq-img-ico {
+  width: 76rpx;
+  height: 76rpx;
+  position: absolute;
+  top: 0;
+  margin-top: -38rpx;
+  left: 50%;
+  margin-left: -38rpx;
+}
+
+.wallet-lq-txt {
+  width: 100%;
+  line-height: 40rpx;
+  color: #fff;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+.wallet-lq-txt2 {
+  width: 100%;
+  line-height: 40rpx;
+  color: #fff;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+.wallet-bottom {
+  width: 100%;
+  height: 400rpx;
+}
+
+.wallet-zzfw {
+  width: 96%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  background: #fff;
+  padding-left: 4%;
+}
+
+.wallet-list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row nowrap;
+  border-top: 2rpx solid #efeff2;
+  border-bottom: 2rpx solid #efeff2;
+}
+
+.wallet-cx {
+  width: 33.3%;
+  font-size: 30rpx;
+  text-align: center;
+  border-left: 2rpx solid #efeff2;
+  border-right: 2rpx solid #efeff2;
+  color: #707070;
+  background: #fff;
+}
+
+.wallet-cx span {
+  width: 84rpx;
+  height: 84rpx;
+  margin-top: 60rpx;
+  display:inline-block;
+}
+
+.wallet-cx-img {
+  width: 100%;
+  height: 40rpx;
+}
+
+.wallet-other {
+  width: 33.3%;
+  font-size: 26rpx;
+  text-align: center;
+  color: #707070;
+  border-right: 2rpx solid #efeff2;
+  background: #fff;
+}
+
+.wallet-other span {
+  width: 84px;
+  height: 84rpx;
+  margin-top: 60rpx;
+  display:inline-block;
+}
+
+.wallet-other-img {
+  width: 100%;
+  height: 40rpx;
+  margin-top: 60rpx;
+}

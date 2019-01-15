@@ -1,0 +1,15 @@
+<view class="about">
+  <view><image src="/images/about/zhizhi.png"></image></view>
+	<view class="about-item">
+		<text class="about-item-title">新增：</text>
+		<text class="about-item-content">1.增加按钮点击水波效果</text>
+    <text class="about-item-content">2.购物车新加批次号</text>
+    <text class="about-item-content">3.货单新加已选</text>
+    <text class="about-item-title">修复：</text>
+		<text class="about-item-content">1.支付重复提交</text>
+    <text class="about-item-content">2.值值宝交易流水加载问题</text>
+    <text class="about-item-content">3.支付流水加载问题</text>
+    <text class="about-item-title">优化：</text>
+		<text class="about-item-content">1.首页扫码图标阴影</text>
+	</view>
+</view>

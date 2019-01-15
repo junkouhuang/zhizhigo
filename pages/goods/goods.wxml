@@ -1,0 +1,157 @@
+<import src="/toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<scroll-view>
+  <block>
+
+    <view class="nav-list {{goNav}}">
+      <view class="swiper-tab-list">
+        <view data-current="1" bindtap="swichNav" class="{{currentTab==1 ? 'on' : ''}}">待支付</view>
+      </view>
+      <view class="swiper-tab-list">
+        <view data-current="6" bindtap="swichNav" class=" {{currentTab==6 ? 'on' : ''}}">支付中</view>
+      </view>
+      <view class="swiper-tab-list">
+        <view data-current="2" bindtap="swichNav" class="{{currentTab==2 ? 'on' : ''}}">待发货</view>
+      </view>
+      <view class="swiper-tab-list">
+        <view data-current="3" bindtap="swichNav" class=" {{currentTab==3 ? 'on' : ''}}">已发货</view>
+      </view>
+       <view class="swiper-tab-list">
+        <view data-current="4" bindtap="swichNav" class=" {{currentTab==4 ? 'on' : ''}}">已收货</view>
+      </view>
+      <view class="swiper-tab-list">
+        <view data-current="5" bindtap="swichNav" class=" {{currentTab==5 ? 'on' : ''}}">已撤单</view>
+      </view>
+    </view>
+
+    <view wx:if="{{orderList.length>0}}" wx:for="{{orderList}}" wx:key="items.id" wx:for-item="items" class="list">
+      <view class="list-item">
+        <block wx:if="{{items.status<=1}}">
+          <view class="list-item-ico">
+            <span wx:if="{{items.selected}}" bindtap="zzckorder" data-index="{{index}}"  class="left-select-ico iconfont icon-gouxuan-yes"></span>
+            <span wx:else  bindtap="zzckorder" data-index="{{index}}"class="iconfont icon-gouxuan-no" ></span>
+          </view>
+        </block>
+        <view class="list-item-items {{currentTab!=1?'paddingLeft':''}}">
+             
+              <!--货单号-->
+              <view class="cart-content-o">
+                <view class="cart-content-ordercode">
+                  <text>货单号：</text>{{items.ordercode}}
+                </view>
+                <view class="cart-content-zt" wx:if="{{items.status!=5}}">
+                  支付状态
+                </view>
+              </view>
+              <view class="cart-content-s">
+                <!--发货数量-->
+                <view class="cart-content-fhsl">
+                  发货数量：{{items.fhsl}}
+                </view>
+                <!--支付状态-->
+                <view wx:if="{{items.status<=1&&items.fhpaystatus==0}}" class="cart-content-status">
+                  待支付
+                </view>
+                <view wx:if="{{items.status<=1&&items.fhpaystatus==2}}" class="cart-content-status">
+                 支付中
+                </view>
+                <view wx:if="{{items.status==2}}" class="cart-content-status">
+                  已支付
+                </view>
+                <view wx:if="{{items.status==3}}" class="cart-content-status">
+                  已支付
+                </view>
+                <view wx:if="{{items.status==4}}" class="cart-content-status">
+                  已支付
+                </view>
+                <view wx:if="{{items.status==5}}" class="cart-content-status">
+                  已撤单
+                </view>
+              </view>
+              <view class="cart-content-t">
+              <!--发货金额-->
+
+                <view  class="cart-content-fhamount">
+                    <view> 发货金额：￥ {{items.fhamount}}</view>
+                    <view> 创建时间： {{items.createtime}}</view>
+                    <view wx:if="{{currentTab==2}}"> 支付单号： {{items.payinfocode}}</view>
+                    <view wx:if="{{currentTab==3}}"> 支付单号： {{items.payinfocode}}</view>
+                    <view wx:if="{{currentTab==4}}"> 支付单号： {{items.payinfocode}}</view>
+                </view>
+
+                <view class="cart-content-more" data-id="{{items.id}}" bindtap='getFhDetail'>
+                    <view>导出明细</view>
+                 </view>
+              </view>
+          </view>
+        <!--end-->
+      </view>
+    </view>
+
+    <view class="pagination" wx:if="{{pagination}}">
+      <view class="prev {{noclick_prev}}" bindtap='prev'  hover-class="clicked">上一页</view>
+      <view class="message">
+        <picker mode="selector" range="{{array}}" bindchange="listenerPickerSelected"  hover-class="clicked">
+          <text>第{{page}}页</text>
+          <text> / </text>
+          <text>共{{pages}}页</text>
+        </picker>
+      </view>
+        <view class="next {{noclick_next}}" bindtap='next'  hover-class="clicked" wx:if="{{isCanClick}}">下一页</view>
+      <view class="next {{noclick_next}}" wx:else  hover-class="clicked">下一页</view>
+    </view>
+    <view wx:else class="pagination">
+    
+    </view>
+
+    <!--footer-->
+    <view class="footer" wx:if="{{currentTab==1}}">
+      <view class="zzmcTotalFee">
+        <view class="zzmcTotalFeetxt">
+          <text class="p">总价:</text>
+          <text class="span"><text class="zjtxt">¥{{total_amount}}</text></text>
+        </view>
+        <view class="zzmcTotalFeetxt">
+          <text>已选:{{yixuan}}</text>
+        </view>
+      </view>
+      <view class="zzcElectPay" hidden='{{bottomnav}}'>
+        <view class="right-left" bindtap="selectAll">
+          <span wx:if="{{selectAll}}"  data-index="{{index}}" class="selectAll iconfont icon-gouxuan-yes"  ></span>
+          <span wx:else  data-index="{{index}}" class="selectAll iconfont icon-gouxuan-no" ></span>
+          <text class="">全选</text>
+        </view>
+        <view class="right-right" bindtap="payment" hidden='{{settlement}}' disabled="{{isCanClick}}"  hover-class="clicked">
+          <image src="/images/index/loading3.gif" hidden='{{cartToLoading}}'></image>付款
+        </view>
+      </view>
+    </view>
+
+  </block>
+
+  <block wx:if="{{orderList=='' && noNetWork!=true}}">
+    <view>
+      <view class="msg">
+        <span class="iconfont  icon-dingdan1"></span>
+        <view wx:if="{{currentTab==1}}">暂无待支付货单</view>
+        <view wx:if="{{currentTab==2}}">暂无待发货货单</view>
+        <view wx:if="{{currentTab==3}}">暂无已发货货单</view>
+        <view wx:if="{{currentTab==4}}">暂无已收货货单</view>
+        <view wx:if="{{currentTab==6}}">暂无支付中货单</view>
+        <view wx:if="{{currentTab==5}}">暂无已撤单货单</view>
+      </view>
+    </view>
+  </block>
+
+</scroll-view>
+
+<view class="bj" wx:if='{{bj}}'>
+  <import src="/loading/loading.wxml" />
+  <template is="wxLoading" data="{{...wxToastConfig}}"></template>
+</view>
+
+<view wx:if="{{noNetWork}}" class="no_network">
+  <view>网络繁忙，请稍候再试
+    <text bindtap='refresh'>刷新</text>
+  </view>
+</view>

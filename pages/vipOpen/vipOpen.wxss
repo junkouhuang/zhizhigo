@@ -1,0 +1,99 @@
+page {
+  background-color: #f1f1f1;
+}
+.user>text {
+  font-size:31rpx;
+  color:#cccccc;
+  padding:21rpx 21rpx 10rpx 21rpx;
+  display:block;
+}
+.user>view {
+  font-size: 36rpx;
+  background-color: #ffffff;
+  width: 100%;
+  height: 90rpx;
+  margin-bottom: 3rpx;
+  display: flex;
+  flex-direction: row;
+}
+.user>view>span {
+  display: flex;
+  align-items: center;
+}
+.user>view>text {
+  width: 22%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+}
+.user>view>picker {
+  height:90rpx;
+  line-height:90rpx;
+  width:70%;
+}
+.accttypeName{
+  height:90rpx;
+  line-height:90rpx;
+  width:70%;
+}
+.user>view>input {
+  width: 75%;
+  height: 90rpx;
+  line-break: 90rpx;
+}
+.card>text {
+  font-size:31rpx;
+  color:#cccccc;
+  padding:21rpx 21rpx 10rpx 21rpx;
+  display:block;
+}
+.card>view>picker {
+  height:90rpx;
+  line-height:90rpx;
+  width:70%;
+}
+.card>view>span {
+  display: flex;
+  align-items: center;
+}
+.card>view {
+  font-size: 36rpx;
+  background-color: #ffffff;
+  width: 100%;
+  height: 90rpx;
+  margin-bottom: 3rpx;
+  display: flex;
+  flex-direction: row;
+}
+.card>view>text {
+  width: 22%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+}
+.card>view>picker {
+  height:90rpx;
+  line-height:90rpx;
+}
+.card>view>input {
+  width: 75%;
+  height: 90rpx;
+  line-break: 90rpx;
+}
+button {
+  background-color:#53a24f;
+  color:#fff;
+  margin-top:20px;
+  width:98%;
+  height:88rpx;
+  line-height:88rpx;
+  font-size:40rpx;
+  text-align:center;
+  margin-left:1%;
+  border-radius:4px;
+  margin-bottom:40rpx;
+}
+
+.wxToast_content {
+  top:60%;
+}

@@ -1,0 +1,14 @@
+<import src="../../toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<view>
+  <view class="message">
+    <view bindtap="getCodeFun">验证码已经发送至{{mobile}}。</view>
+    <view>
+      <input type='number' maxlength='6' bindinput='securityCodeFun' placeholder='请输入验证码'></input>
+      <span class="col1" wx:if="{{disabled}}">{{message}}</span>
+      <span wx:if="{{!disabled}}" bindtap="getCodeFun"  hover-class="clicked">重新获取</span>
+    </view>
+  </view>
+  <view class="next"   wx:if="{{forbid}}"  hover-class="clicked">下一步</view>
+  <view class="next" bindtap='nextFun'   wx:if="{{!forbid}}"  hover-class="clicked">下一步</view>
+</view>

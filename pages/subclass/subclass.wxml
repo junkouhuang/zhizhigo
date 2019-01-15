@@ -1,0 +1,111 @@
+<import src="/toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<scroll-view>
+  <view class="content_top">
+    <view class="search">
+      <view class="saoma" bindtap="saoma"><span class="iconfont icon-saoma"></span></view>
+      <view class="search-panel"  bindtap="search">
+        <view class="search-ico">
+          <span class="iconfont icon-sousuo"></span>
+        </view>
+        <view class="search-mc">
+          <view class="search-mc">{{lbname}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="classify">
+      <view class="classify-synthesize {{mr}}" bindtap='synthesize'>
+        <text>默认</text>
+      </view>
+      <view class="{{choosePrice==''?'classify-sales':'choosePrice'}}" bindtap='buyPrice'>
+        <text>价格</text>
+      </view>
+    </view>
+    <view class="selByPrice" hidden='{{listFix}}'>
+      <view class="selByPriceArea">
+        <text class="priceTier">价格段</text>
+      </view>
+      <view class="selByPriceArea">
+        <view class="lowerPrice">
+          <input type='number' class="" value="{{minPrice}}" bindinput="inputMinPrice" maxlength='6' placeholder='最低价'></input>
+        </view>
+        <text class="symbol">-</text>
+        <view class="hightPrice">
+          <input type='number' class="" value="{{maxPrice}}" bindinput="inputMaxPrice" maxlength='6' placeholder='最高价'></input>
+        </view>
+      </view>
+      <view class="btn">
+        <text class="reset" bindtap='reset'  hover-class="clicked">重置</text>
+        <text class="line"></text>
+        <text class="confirm" bindtap='searchBox'  hover-class="clicked">确定</text>
+      </view>
+    </view>
+    <view class="list-fix" hidden='{{listFix}}' bindtap='listFix'></view>
+  </view>
+
+  <view wx:if="{{productList.length>0}}" bindtap='listFix'>
+    <view class="template">
+      <view wx:for="{{productList}}" class="prolist">
+        <view class="template-row">
+          <navigator url="../detail/detail?id={{item.id}}">
+            <view class="video-row-in">
+              <view class="video-row-image" style=" background-image:url(http://119.23.48.31/{{item.topimgpath}});height:{{imgHeight}}px">
+                <view class="fbTime">起订时间 {{item.fbtime}}</view>
+              </view>
+              <span wx:if="{{item.stock<=0 || item.stock==null || item.stock==''}}" class="video-row-in-sq iconfont icon-shouqing"></span>
+              <view class="one-tag">
+                <text class="one-tag-title">{{item.productname}}</text>
+                <text class="one-tag-sellprice">￥ {{item.sellprice}}</text>
+                <view class="one-tag-addToCartAndTime">
+                  <text class="one-tag-time"> {{item.productcode}}</text>
+                  <view class="one-tag-addToCart">
+                    <span class="one-tag-addToCartImg iconfont icon-gouwuche" ></span>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+    <view class="loadingmore" wx:if="{{searchLoading}}">
+      <view class="loading1">
+        <image src="/images/index/loading3.gif"></image>
+      </view>
+      <view class="loading2">
+        <text>正在载入更多...</text>
+      </view>
+    </view>
+    <view class="loadingmore" wx:else>
+      <view class="prev {{noclick_prev}}" bindtap='prev'  hover-class="clicked">上一页</view>
+      <view class="message" bindtap=''>
+        <picker mode="selector" range="{{array}}" value="{{index}}" bindchange="listenerPickerSelected"  hover-class="clicked">
+          <text>第{{page}}页</text>
+          <text> / </text>
+          <text>共{{pages}}页</text>
+        </picker>
+      </view>
+      <view class="next {{noclick_next}}" bindtap='next'  hover-class="clicked">下一页</view>
+    </view>
+  </view>
+
+  <view wx:if="{{productList=='' && noNetWork!=true}}" class="msg">
+    {{noData}}
+  </view>
+
+  <view class="com-widget-goTop  {{s_move}}" bindtap="goTop">
+    <span class="iconfont icon-xiangshangshouqi-yuankuang"></span>
+  </view>
+
+</scroll-view>
+
+<view class="bj" wx:if='{{bj}}'>
+  <import src="/loading/loading.wxml" />
+  <template is="wxLoading" data="{{...wxToastConfig}}"></template>
+</view>
+
+<view wx:if="{{noNetWork}}" class="no_network">
+  <view>网络繁忙，请稍候再试
+    <text bindtap='refresh'>刷新</text>
+  </view>
+</view>

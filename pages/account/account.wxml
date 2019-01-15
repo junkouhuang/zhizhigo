@@ -1,0 +1,36 @@
+<import src="/toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<scroll-view>
+  <block wx:if="{{recordList.length>0}}">
+    <view wx:for="{{recordList}}" wx:key="items.id" wx:for-item="items" class="list">
+      <view class="list-item">
+        <view class="list-item-items">
+          <view class="cart-content-h">
+            <view class="cart-content-ordercode">支付金额：{{items.payamount}}</view>
+            <view class="cart-content-batchcode" wx:if="{{items.paytype==0}}">支付类型：微信</view>
+            <view class="cart-content-batchcode" wx:if="{{items.paytype==2}}">支付类型：值值宝</view>
+            <view class="cart-content-batchcode">支付单号：{{items.payinfocode}}</view>
+            <view class="cart-content-batchcode">支付时间：{{items.paytime}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="searchLoading" wx:if="{{searchLoading}}">
+      <image src="/images/index/loading3.gif"></image>
+      <text>正在载入更多...</text>
+    </view>
+    <view class="searchLoadingComplete" wx:else>已加载全部</view>
+  </block>
+  <view  wx:if="{{recordList=='' && noNetWork!=true}}">
+    <view class="msg">当前没有支付流水记录</view>
+  </view>
+</scroll-view>
+
+<view class="bj" wx:if='{{bj}}'>
+    <import src="/loading/loading.wxml" />
+    <template is="wxLoading" data="{{...wxToastConfig}}"></template>
+</view>
+
+<view wx:if="{{noNetWork}}" class="no_network">
+  <view>网络繁忙，请稍候再试<text  bindtap='refresh'>刷新</text></view>
+</view>

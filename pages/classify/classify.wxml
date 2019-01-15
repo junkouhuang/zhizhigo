@@ -1,0 +1,46 @@
+<import src="/toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<scroll-view class="nav_left" scroll-y="true"  scroll-top="{{scrollTop}}">
+    <block wx:for="{{navLeftItems}}">
+        <view class="nav_left_items {{indexx == index ? 'active' : ''}}"  data-index="{{index}}" data-sexok="{{item.sexok}}" data-id="{{item.id}}" bindtap='goMiddle'>{{item.desc}}</view>
+    </block>
+</scroll-view>
+
+<scroll-view class="nav_right"  scroll-y="true"  scroll-top="{{scrolltop}}">
+  <view class="fl" >
+      <view    bindtap='f1' data-season="1"  data-lb="{{season}}"  class="{{season==1?'iconfont icon-gouxuan-yes':''}}">
+        四季
+      </view>
+      <view   bindtap='f1' data-season="2"  data-lb="{{season}}"  class="{{season==2?'iconfont icon-gouxuan-yes':''}}">
+        冬季
+      </view>
+        <view   bindtap='f1' data-season="3"  data-lb="{{season}}"  class="{{season==3?'iconfont icon-gouxuan-yes':''}}">
+        夏季
+      </view>
+      <view   bindtap='f1' data-season="4"  data-lb="{{season}}"  class="{{season==4?'iconfont icon-gouxuan-yes':''}}">
+        春秋
+      </view>
+        <view   bindtap='f2' data-sex="1"  data-lb="{{sex}}"  class="{{sex==1?'iconfont icon-gouxuan-yes':''}}">
+        男
+      </view>
+        <view   bindtap='f2' data-sex="2"  data-lb="{{sex}}"  class="{{sex==2?'iconfont icon-gouxuan-yes':''}}">
+        女
+      </view>
+  </view>
+  <view  wx:if="{{navRightItems.length>0}}" >
+    <block wx:for="{{navRightItems}}"  wx:for-item="item" >
+            <view class="nav_right_items" >
+                  <navigator class="nav_row_in" url="/pages/subclass/subclass?lbname=请输入商品名/批次号 &lbid={{item.id}}&data=0">
+                   <!--<navigator class="nav_row_in" url="/pages/subclass/subclass?lbname='{{item.desc}}'&lbid={{item.id}}&data=0">-->
+                      <text wx:if="{{item.show}}">{{item.desc}}({{item.productsl}})</text>
+                  </navigator>
+            </view>
+    </block>
+  </view >
+  
+  <view wx:else>暂无数据</view>
+</scroll-view>
+
+<view wx:if="{{noNetWork}}" class="no_network">
+  <view>网络繁忙，请稍候再试<text  bindtap='refresh'>刷新</text></view>
+</view>

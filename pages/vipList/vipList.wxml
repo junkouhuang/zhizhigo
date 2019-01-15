@@ -1,0 +1,24 @@
+
+<!--开卡-->
+<view class="view1">
+  <navigator   url="../vipOpen/vipOpen"  class="horizontal_item2">
+      <view  class="iconfont icon-yuechi"></view>
+      <view>开卡</view>
+  </navigator>
+</view>
+<view class="list">
+<!--充值-->
+<view class="view2">
+  <navigator  url="../vipRecharge/vipRecharge"  class="horizontal_item2">
+      <view class="iconfont icon-chongzhi"></view>
+      <view>充值</view>
+  </navigator>
+</view>
+<!--生成支付码-->
+<view class="view3">
+  <navigator  url="../payMentCode/payMentCode"  class="horizontal_item2">
+      <view  class="iconfont icon-goumaibangongyongpin"></view>
+      <view>购买支付码</view>
+  </navigator>
+</view>
+</view>

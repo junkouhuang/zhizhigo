@@ -1,0 +1,14 @@
+<import src="../../toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<view class="payMentCode">
+    <text>充值金额</text>
+    <picker bindchange="selMoney" value="{{index}}" range="{{moneyArray}}">
+      <view class="moneyHintView" wx:if="{{moneyBoolean}}">
+        请选择充值金额
+      </view>
+      <view class="picker" wx:else>
+        {{moneyArray[money]}}元
+      </view>
+    </picker>
+</view>
+<view class="next" bindtap='createViphyPayCodeByWxPay' hover-class="clicked">去支付</view>  

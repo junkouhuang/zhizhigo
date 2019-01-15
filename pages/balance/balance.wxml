@@ -1,0 +1,14 @@
+<view class='balance'>
+  <view class="balance-container">
+     <view class="balance-container-txt">充值金额</view>
+     <view  class="balance-container-inp">
+        <view class="balance-container-inp-ico">￥</view>
+        <view class="balance-container-inp-txt"><input type='number' bindinput='inputBalance' placeholder='请输入充值金额'></input></view>
+     </view>
+  </view>
+  <view class="balance-btn">
+     <view class="balance-btn-txt">
+      <view  bindtap='wallet_pay' class="{{next}}" disabled='{{disabled}}'  hover-class="clicked">下一步</view>
+     </view>
+  </view>
+</view>

@@ -1,0 +1,177 @@
+page {
+  width: 100%;
+  height: 100%;
+}
+.card .cardList>view{
+  width: 90%;
+  margin-left: 5%;
+  border-radius: 16rpx;
+  margin-top:40rpx;
+}
+.card .cardList p {
+  color: #cccccc;
+}
+.card .cardList .title>view{
+  float: left;
+}
+.card .cardList .title>view:nth-child(1){
+  font-size: 80rpx;
+  border-radius:100%;
+  width: 20%;
+  text-align:center;
+}
+.card .cardList .title>view:nth-child(1)>span{
+  font-size:80rpx;
+  background:#ffffff;
+  border-radius:100%;
+}
+
+.card .cardList .title>view:nth-child(2){
+  width:80%;
+  border-radius:100%;
+}
+.card .cardList .title .bank{
+  color:#ffffff;
+  font-size:32rpx;
+  margin-top:20rpx;
+}
+.card .cardList .title .bank .cardNo {
+  margin-top: 30rpx;
+}
+.card .cardList span {
+  margin-left: 20rpx;
+}
+
+.card but.addton text {
+  font-size:36rpx;
+  font-weight:bold;
+  position:relative;
+  bottom:6rpx;
+}
+
+.wallets-password {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.wallets-password .input-content-wrap {
+  position: absolute;
+  top: 200rpx;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 600rpx;
+  margin-left: -300rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  z-index: 0;
+}
+
+.wallets-password .input-content-wrap .top {
+  display: flex;
+  align-items: center;
+  height: 90rpx;
+  border-bottom: 2rpx solid #ddd;
+  justify-content: space-around;
+}
+
+.wallets-password .input-content-wrap .top .close {
+  font-size: 44rpx;
+  color: #999;
+  font-weight: 100;
+}
+
+.wallets-password .input-content-wrap .top .forget {
+  color: #53a24f;
+  font-size: 22rpx;
+}
+
+.wallets-password .input-content-wrap .actual_fee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  height: 100rpx;
+  margin: 0 23rpx;
+  border-bottom: 2rpx solid #ddd;
+  font-weight: bold;
+}
+
+.wallets-password .input-content-wrap .actual_fee text {
+  font-size: 36rpx;
+}
+
+.wallets-password .input-content-wrap .input-password-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150rpx;
+}
+
+.wallets-password .input-content-wrap .input-password-wrap .password_dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #000;
+  box-sizing: border-box;
+  width: 90rpx;
+  height: 90rpx;
+  border: 2rpx solid #ddd;
+  border-left: none 0;
+}
+
+.wallets-password .input-content-wrap .input-password-wrap .password_dot:nth-child(1) {
+  border-left: 2rpx solid #ddd;
+}
+
+.wallets-password .input-content-wrap .input-password-wrap .password_dot i {
+  background: #000;
+  border-radius: 50%;
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.wallets-password .input-content {
+  position: absolute;
+  opacity: 0;
+  left: -100%;
+  top: 600rpx;
+  background: #f56;
+  z-index: -999;
+}
+
+.wallets-password .input-content.active {
+  z-index: -99;
+}
+
+.add {
+  background: #fff;
+  width: 90%;
+  color: #999;
+  position: relative;
+  height: 100rpx;
+  line-height: 92rpx;
+  text-align: center;
+  border: 2rpx dashed #ccc;
+  margin-left: 5%;
+  margin-top: 40rpx;
+  border-radius: 8rpx;
+  font-size:40rpx;
+}
+
+.add span {
+  font-size: 56rpx;
+  font-weight: bold;
+}
+
+.addton text {
+  font-size: 36rpx;
+  font-weight: bold;
+  position: relative;
+  bottom: 6rpx;
+}

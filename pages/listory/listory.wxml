@@ -1,0 +1,52 @@
+<import src="/toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<scroll-view>
+  <block wx:if="{{batchList.length>0}}">
+    <view wx:for="{{batchList}}" wx:key="items.id" wx:for-item="items" class="list">
+      <view class="list-item">
+        <view class="list-item-items">
+          <view class="cart-content-h">
+            <view class="cart-content-ordercode">订单号：{{items.orders.ordercode}}</view>
+            <view class="cart-content-batchcode">批次号：{{items.batchcode}}</view>
+            <view class="cart-content-createtime" wx:if="{{items.orders.createtime!=null}}">创建时间： {{items.orders.createtime}}</view>
+            <!--订单状态-->
+            <view wx:if="{{items.status==0 && items.paystatus==0}}" class="cart-content-status">订单状态：待支付</view>
+            <view wx:if="{{items.status==0 && items.paystatus==2}}" class="cart-content-status">订单状态：支付中</view>
+           
+            <view wx:if="{{items.status<=3 && items.paystatus==3}}" class="cart-content-status">订单状态：待发货</view>
+            <view wx:if="{{items.status==5 && items.paystatus==3}}" class="cart-content-status">订单状态：已发货</view>
+
+            <view wx:if="{{items.status==9 && items.paystatus==3}}" class="cart-content-status">订单状态：支付撤单</view>
+            <view wx:if="{{items.status==9 && items.paystatus!=3}}" class="cart-content-status">订单状态：过期撤单</view>
+
+          </view>
+          <view class="cart-content-sellprice" wx:if="{{items.orderamount!=null}}">金额 ￥ {{items.orderamount}}</view>
+        </view>
+        <!--end-->
+      </view>
+      <view wx:for="{{items.ordersDetailList}}" wx:for-item="detail" wx:key="detail.id" style='width:100%;'>
+        <view class="cart-content-sku">
+          <view class="cart-content-sku-size">{{detail.ys}}</view>
+          <view class="cart-content-sku-color">{{detail.cm}}</view>
+          <view class="cart-content-sku-price">¥ {{detail.price}}</view>
+          <view class="cart-content-sku-sl">X {{detail.sl}}</view>
+          <view class="cart-content-sku-mfsl">{{detail.mfsl}}{{product.spBatchBasic.dw==null?'':product.spBatchBasic.dw}}/份</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{batchList=='' && noNetWork!=true}}">
+    <view>
+      <view class="msg">当前没有批次记录</view>
+    </view>
+  </block>
+</scroll-view>
+
+<view class="bj" wx:if='{{bj}}'>
+    <import src="/loading/loading.wxml" />
+    <template is="wxLoading" data="{{...wxToastConfig}}"></template>
+</view>
+
+<view wx:if="{{noNetWork}}" class="no_network">
+  <view>网络繁忙，请稍候再试<text  bindtap='refresh'>刷新</text></view>
+</view>

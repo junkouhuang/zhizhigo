@@ -1,0 +1,146 @@
+<import src="/toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<scroll-view>
+
+  <view class="swiper-container">
+    <!--轮播区域高度：宽度==3：4-->
+    <swiper class="swiper" interval="5000" autoplay="true" duration="500" bindchange="swiperChange" circular="true" style='width:{{swiper_width}}px;height:{{swiper_height}}px;'>
+      <swiper-item wx:for="{{imgUrls}}">
+        <!--图片最宽度不超出区域以图片高度-->
+        <image src="{{item.url}}" data-index="{{index}}" bindload="imgCss" style="width:{{imgCss[index].width}}px;height:{{imgCss[index].height}}px;" />
+      </swiper-item>
+    </swiper>
+
+    <view class="dots">
+      <block wx:for="{{imgUrls}}">
+        <view class="dot{{index == swiperCurrent? ' active' : ''}}"></view>
+      </block>
+    </view>
+  </view>
+
+  <view class="search">
+    <view class="saoma" bindtap='saoma'><span class="iconfont icon-saoma"></span></view>
+    <view class="search-panel">
+      <view class="search-ico">
+        <icon type='search' size="18"></icon>
+      </view>
+      <view class="search-mc" bindtap="search">
+        按批次号/商品名搜索
+      </view>
+    </view>
+  </view>
+
+  <view class="swiper-tab {{variable}}">
+   
+    <view class="swiper-tab-list" data-current="2" bindtap="swichNav">
+      <view class="nav {{currentTab==2 ? 'colr1' : ''}}">
+        <text>RECOMMEND</text>
+        <text>今日推荐</text>
+        <span wx:if="{{firePath}}" class="{{firePath1}}"></span>
+        <span wx:else class="{{firePath2}}"></span>
+      </view>
+     
+    </view>
+     <view class="swiper-tab-list" data-current="0" bindtap="swichNav">
+      <view class="nav {{currentTab==0 ? 'colr2' : ''}}">
+        <text>NEW</text>
+        <text>新品</text>
+      </view>
+    
+    </view>
+
+      <view class="swiper-tab-list" data-current="1" bindtap="swichNav">
+      <view class="nav {{currentTab==1 ? 'colr2' : ''}}">
+        <text>ORDER</text>
+        <text>订货会</text>
+      </view>
+    
+    </view>
+
+  </view>
+
+  <view wx:if="{{productList.length>0}}">
+    <view class="template">
+      <view wx:for="{{productList}}" class="prolist">
+        <view class="template-row">
+          <navigator url="../detail/detail?id={{item.id}}">
+            <view class="video-row-in">
+              <view class="video-row-image" style=" background-image:url(http://119.23.48.31/{{item.topimgpath}});height:{{imgHeight}}px">
+                <view class="fbTime">起订时间 {{item.fbtime}}</view>
+              </view>
+              <span  wx:if="{{item.stock<=0 || item.stock==null || item.stock==''}}"  class="video-row-in-sq iconfont icon-shouqing"></span>
+              <view class="one-tag">
+                <text class="one-tag-title">{{item.productname}}</text>
+                <text class="one-tag-sellprice">￥ <text class="one-tag-sellprice-txt">{{item.sellprice}}</text></text>
+                <view class="one-tag-addToCartAndTime">
+                  <view class="one-tag-time">
+                    <text>{{item.productcode}}</text>
+                  </view>
+                  <view class="one-tag-addToCart">
+                    <span class="one-tag-addToCartImg iconfont icon-gouwuche" ></span>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+
+    <block wx:if="{{showLoading}}">
+    <!--正在加载-->
+      <view class="loadingmore" >
+        <view class="loadingmore_img">
+          <image src="/images/index/loading3.gif"></image>
+        </view>
+        <view class="loadingmore_text" wx:if="{{!noNetWork}}">
+          <text>正在载入更多...</text>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <!--加载全部-->
+      <!--网络故障-->
+      <view class="refresh" wx:if="{{noNetWork}}">
+        <view class="refresh_text">
+          <text>网络异常,刷新试试</text>
+          <button bindtap='refresh'>刷新</button>
+        </view>
+      </view>
+      <view class="complete" wx:else>
+        <text class="complete_all">已加载全部</text>
+        <text class="complete_more">(分类里面有更多)</text>
+      </view>
+    </block>
+    
+  </view>
+
+  <!--暂无数据-->
+  <view wx:else>
+    <view class="refresh" wx:if="{{noNetWork}}">
+        <view class="refresh_text">
+          <text>网络异常,刷新试试</text>
+          <button bindtap='refresh'>刷新</button>
+        </view>
+    </view>
+    <view class="msg" wx:else>{{noData}}</view>
+  </view>
+
+</scroll-view>
+
+<!--置顶-->
+<view class="com-widget-goTop {{s_move}}" bindtap="goTop">
+  <span class="iconfont icon-xiangshangshouqi-yuankuang"></span>
+</view>
+
+<!--商品列表加载-->
+<view class="no_network" wx:if="{{mkbj}}" style='top:{{swiper_height+48}}px;'>
+  <import src="/loading/loading.wxml" />
+  <template is="wxLoading" data="{{...wxToastConfig}}"></template>
+</view>
+
+<!--背景加载-->
+<view class="bj" wx:if='{{bj}}'>
+  <import src="/loading/loading.wxml" />
+  <template is="wxLoading" data="{{...wxToastConfig}}"></template>
+</view>

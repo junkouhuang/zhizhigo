@@ -1,0 +1,35 @@
+page {
+  background: #efeff2;
+}
+.payMentCode {
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  margin-top: 50rpx;
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  font-size:40rpx;
+}
+text {
+  width: 30%;
+  text-align:center;
+}
+picker {
+  width: 70%;
+}
+.next {
+  background-color: #53a24f;
+  color: #fff;
+  margin-top: 40rpx;
+  width: 98%;
+  height:88rpx;
+  line-height:88rpx;
+  font-size: 40rpx;
+  text-align: center;
+  margin-left: 1%;
+  border-radius: 8rpx;
+}
+.wxToast_content {
+  top:60%;
+}

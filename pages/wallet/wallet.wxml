@@ -1,0 +1,20 @@
+<view class="wallet">
+  <view class="wallet-top">
+    <view class="wallet-lq">
+      <view class="wallet-lq-img">
+        <span  class="wallet-lq-img-ico iconfont icon-huobiyuxiaofei"></span>
+      </view>
+      <view class="wallet-lq-txt">余额</view>
+      <view class="wallet-lq-txt2"><text class="wallet-lq-txt-rmb">￥</text> {{lastbalance}}</view>
+    </view>
+  </view>
+  <view class="wallet-bottom">
+    <view class="wallet-zzfw">值值宝服务</view>
+    <view class="wallet-list" style="height:{{walletSfkWidth}}px;">
+      <navigator class="wallet-cx" wx:for="{{items}}" url="{{item.path}}" style="width:{{walletSfkWidth}}px;height:{{walletSfkWidth}}px;">
+          <span class="{{item.icon}}"></span>
+          <view class="wallet-cx-txt">{{item.text}}</view>
+      </navigator>
+    </view>
+  </view>
+</view>

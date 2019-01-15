@@ -1,0 +1,91 @@
+.card .cardList>view {
+  width: 90%;
+  margin-left: 5%;
+  border-radius: 16rpx;
+  margin-top: 40rpx;
+  height:278rpx;
+}
+
+.card .cardList p {
+  color: #ccc;
+}
+
+.card .cardList .title>view {
+  float: left;
+}
+
+.card .cardList .title>view:nth-child(1) {
+  font-size: 80rpx;
+  border-radius: 100%;
+  width: 20%;
+  text-align: center;
+}
+
+.card .cardList .title>view:nth-child(1)>span {
+  font-size: 80rpx;
+  background: #fff;
+  border-radius: 100%;
+}
+
+.card .cardList .title>view:nth-child(2) {
+  width: 80%;
+  border-radius: 100%;
+}
+
+.card .cardList .title .bank {
+  color: #fff;
+  font-size: 36rpx;
+  margin-top: 20rpx;
+}
+
+.card .cardList .title .bank .cardNo {
+  margin-top: 30rpx;
+}
+
+.card .add {
+  background: #fff;
+  width: 90%;
+  color: #999;
+  position: relative;
+  height: 100rpx;
+  line-height: 92rpx;
+  text-align: center;
+  border: 2rpx dashed #ccc;
+  margin-left: 5%;
+  margin-top: 40rpx;
+  border-radius: 8rpx;
+  font-size:40rpx;
+  margin-bottom:40rpx;
+}
+
+.card .add span {
+  font-size: 56rpx;
+  font-weight: bold;
+}
+
+.card but.addton text {
+  font-size: 36rpx;
+  font-weight: bold;
+  position: relative;
+  bottom: 6rpx;
+}
+
+.noCard {
+  border: #ccc;
+  margin-top: 40rpx;
+  width: 90%;
+  margin-left: 5%;
+  border-radius: 20rpx;
+}
+
+.noCard span {
+  margin-left: 40rpx;
+}
+
+.noCard p {
+  color: #ccc;
+}
+
+.wxToast_content {
+  top:60%;
+}

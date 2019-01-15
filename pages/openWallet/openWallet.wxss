@@ -1,0 +1,159 @@
+page {
+  width: 100%;
+  height: 100%;
+  background:#EFEFF2;
+}
+.openWaller {
+  width:100%;
+  height: 100%;
+}
+.openWaller-container {
+  width: 100%;
+}
+.openWaller-container-pwd {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #ffffff;
+  border-bottom: 2rpx solid #EFEFF2;
+  display: flex;
+  flex-flow: row nowrap;
+  flex-direction: row;
+}
+.openWaller-container-pwd-txt {
+  width: 25%;
+  padding-left: 2%;
+}
+.openWaller-container-pwd-inp {
+  width: 100%;
+}
+.openWaller-container-pwd-inp input {
+  width: 98%;
+  height: 100%;
+  margin-left: 3%;
+}
+.openWaller-container-card {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #ffffff;
+  border-bottom: 2rpx solid #EFEFF2;
+  display: flex;
+  flex-flow: row nowrap;
+  flex-direction: row;
+}
+.openWaller-container-card-txt {
+  width: 26%;
+  padding-left: 2%;
+}
+.openWaller-container-card-inp {
+  width: 100%;
+}
+.openWaller-container-card-inp input {
+  width: 98%;
+  height: 100%;
+  margin-left: 3%;
+}
+.openWaller-container-phone {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #ffffff;
+  border-bottom: 2rpx solid #EFEFF2;
+  display: flex;
+  flex-flow: row nowrap;
+  flex-direction: row;
+}
+.openWaller-container-phone-txt {
+  width: 20%;
+  padding-left: 2%;
+}
+.openWaller-container-phone-inp {
+  width: 60%;
+}
+.openWaller-container-phone-btn {
+  width: 40%;
+}
+.openWaller-container-phone-btn button{
+  width:77%;
+  font-size:30rpx;
+  margin-left:17%;
+  margin-right:2%;
+  height:90%;
+  margin-top:2%;
+  margin-bottom:2%;
+  display:block;
+  border:2rpx solid #ededed;
+  background:#53a24f;
+  color:#fff;
+  padding:0;
+}
+.int {
+  background: #ccc;
+}
+.openWaller-container-phone-inp input {
+  width: 98%;
+  height: 100%;
+  margin-left: 3%;
+}
+.openWaller-container-verification {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #ffffff;
+  border-bottom: 2rpx solid #EFEFF2;
+  display: flex;
+  flex-flow: row nowrap;
+  flex-direction: row;
+}
+.openWaller-container-verification-txt {
+  width: 20%;
+  padding-left: 2%;
+}
+.openWaller-container-verification-inp {
+  width: 100%;
+}
+.openWaller-container-verification-inp input {
+  width: 98%;
+  height: 100%;
+  margin-left: 3%;
+}
+.openWaller-container-default {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #ffffff;
+  border-bottom: 2rpx solid #EFEFF2;
+  display: flex;
+  flex-flow: row nowrap;
+  flex-direction: row;
+}
+.openWaller-container-default-txt {
+  width: 48%;
+  padding-left: 2%;
+}
+.openWaller-container-default-inp {
+  width: 50%;
+}
+.openWaller-btn {
+  width:100%;
+  height: 200rpx;
+}
+.confirm {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 20rpx;
+  background: #53a24f;
+  color: #ffffff;
+  text-align: center;
+}
+.reset {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 20rpx;
+  background: #F5B223;
+  color: #ffffff;
+  text-align: center;
+}

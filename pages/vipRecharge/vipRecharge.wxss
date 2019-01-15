@@ -1,0 +1,87 @@
+page {
+  background: #f5f5f5;
+}
+.cardNo {
+  background:#ffffff;
+  width:96%;
+  height:80rpx;
+  line-height:80rpx;
+  margin-left:2%;
+  margin-top:40rpx;
+  font-size:36rpx;
+  display: flex;
+  flex-direction: row;
+}
+.cardNo .vipCard {
+  width:75%;
+  height:80rpx;
+}
+.cardNo .vipCard input {
+  width: 100%;
+  height:80rpx;
+  line-height:80rpx;
+}
+.cardNo .getViphyInfoByVipCard {
+  width:25%;
+  height:80rpx;
+  line-height:80rpx;
+  text-align: center;
+  color:#ffffff;
+  background: #53a24f;
+}
+
+.viphyInfo {
+  margin-left:2%;
+  width:96%;
+  margin-top:20rpx;
+  font-size:36rpx;
+}
+.viphyInfo view{
+  margin-top: 60rpx;
+  background: #add4ab;
+  padding:10rpx;
+  color:#147c0e;
+}
+.viphyInfo view text{
+  margin-left:10rpx;
+}
+
+.recharge {
+  width:96%;
+  margin-top:40rpx;
+  margin-left:2%;
+}
+
+.recharge view {
+  background-color:#53a24f;
+  padding:15rpx 0;
+  color:#ffffff;
+  font-size:40rpx;
+  width:176rpx;
+  text-align:center;
+  float:right;
+}
+.rechargeMoney {
+  width:96%;
+  height:100rpx;
+  margin-left: 2%;
+  display:flex;
+  flex-direction:row;
+  background-color:#ffffff;
+  font-size:36rpx;
+  margin-top:20rpx;
+}
+.rechargeMoney text {
+  width: 30%;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size:36rpx;
+}
+.rechargeMoney picker {
+  width: 70%;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.wxToast_content {
+  top:60%;
+}

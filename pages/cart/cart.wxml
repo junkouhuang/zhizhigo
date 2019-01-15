@@ -1,0 +1,162 @@
+<import src="/toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<scroll-view>
+
+  <!--有数据-->
+  <block wx:if="{{allGoods.length>0}}">
+    <!--顶部工具栏-->
+    <view class="flexd">
+      <view class="left">
+        <view class="left-price">
+          <span wx:if="{{selectAllStatus}}"  class="iconfont icon-gouxuan-yes left-select-ico"   bindtap="selectAll" data-select-id="{{selectAllStatus}}"></span>
+          <span wx:else   class="iconfont icon-gouxuan-no left-select-ico" bindtap="selectAll" data-select-id="{{selectAllStatus}}"></span>
+          <text class="left-select-txt" bindtap="selectAll">全选</text>
+        </view>
+      </view>
+      <text class="editorgoods" bindtap='editorgoods' wx:if='{{editorgoods}}'>编辑商品</text>
+      <text class="finsh" bindtap="finsh" wx:else>完成</text>
+    </view>
+
+    <!--列表数据-->
+    <view class="box">
+      <!--列表内容-->
+      <view wx:for="{{allGoods}}" wx:key="item.id" wx:for-item="items" class="list">
+        <view class="cart-content-name">{{items.spBatchBasic.productname}}</view>
+        <view class="zixiang">
+          <view class="cart-check" style='height:{{topImgWidth}}px;line-height:{{topImgWidth}}px;'>
+            <span wx:if="{{items.selected}}"  bindtap="selectList" data-index="{{index}}"  class='iconfont icon-gouxuan-yes'></span>
+            <span wx:else bindtap="selectList" data-index="{{index}}" class='iconfont icon-gouxuan-no'></span>
+          </view>
+          <view class="cart-check-goodsImg" bindtap="toDetail" data-id="{{items.id}}">
+            <navigator url="../detail/detail?id={{items.batchid}}">
+              <view style=" background-image:url(http://119.23.48.31/{{items.spBatchBasic.topimgpath}});width:{{topImgWidth}}px;height:{{topImgWidth}}px;" data-index="{{index}}" bindload="imageLoad1"></view>
+            </navigator>
+          </view>
+          <view class="cart-content">
+            <view>
+              <view class="cart-content-sellprice">{{items.spBatchBasic.batchcode}}
+              </view>
+              <view class="cart-content-sellprice">售价
+                <text class="sjtxt">￥ </text>
+                <text class='sj'>{{items.spBatchBasic.sellprice}}</text>
+              </view>
+              <view class="cart-content-sellprice" wx:if="{{items.spBatchBasic.dw!=''&& items.spBatchBasic.dw!=null}}">单位
+                <text class='dw'>{{items.spBatchBasic.dw}}</text>
+              </view>
+            </view>
+            <view class="cart-shopping-mx">
+              <view wx:for="{{items.shoppingCartDetailList}}" wx:for-item="item" wx:for-index="subindex">
+
+                <view class="cart-content-sku">
+                  <view class="cart-content-sku-size">
+                    <text>{{item.ys}}</text>
+                    <text>{{item.cm}}</text>
+                  </view>
+                  <view class="cart-content-sku-sl">
+
+
+                    <view class="input">
+                      <input type="number" bindblur="updnumblur" data-index="{{subindex}}" data-parentindex="{{index}}" value="{{item.sl}}" />
+                    </view>
+                    <view class="mfsl">{{item.mfsl}}{{items.spBatchBasic.dw==null?"":items.spBatchBasic.dw}}/份</view>
+                    <block wx:if='{{hidedel}}'>
+                      <view class="cart-content-sku-flex-stock" wx:if="{{item.stock!='' && item.stock!=null && item.stock>0}}">
+                        <text>库存</text>
+                        <text>{{item.stock}}</text>
+                      </view>
+                      <view class="cart-content-sku-flex-stock" wx:else>
+                        <text>库存</text>
+                        <text>0</text>
+                      </view>
+                    </block>
+                    <block wx:else>
+                      <view class="cart-content-sku-flex-del">
+                        <span bindtap="deletechildcart" data-index="{{subindex}}" data-parentindex="{{index}}" class="cart-content-sku-flex-dex-img iconfont icon-shanchu2"></span>
+                      </view>
+                    </block>
+
+
+                  </view>
+                </view>
+
+
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="cart-content-sellprice-xj">
+          <view class="xjtext"></view>
+          <text>小计￥</text>
+          <text class="xj"> {{items.cartAmount}}</text>
+        </view>
+      </view>
+
+      <!--上一页下一页-->
+      <view class="pagebar" wx:if="{{pagebar}}">
+        <view class="prev {{noclick_prev}}" bindtap='prev' hover-class="clicked">上一页</view>
+        <view class="message">
+          <picker mode="selector" range="{{array}}" value="{{index}}" bindchange="listenerPickerSelected"  hover-class="clicked">
+            <text>第{{page}}页</text>
+            <text> / </text>
+            <text>共{{pages}}页</text>
+          </picker>
+        </view>
+        <view class="next {{noclick_next}}" bindtap='nextPage' hover-class="clicked">下一页</view>
+      </view>
+      <view wx:else class="pagebar">
+      </view>
+    </view>
+
+    <!--底部-->
+    <view class="footer" wx:if='{{delOrder}}'>
+      <view class="left">
+        <view class="left-price">
+          <view>
+            <text class="p">总价:</text>
+            <text class="span">¥{{totalPrice}}</text>
+
+          </view>
+        </view>
+        <view class="left-select">
+          <view>
+            <text class="p">已选:</text>
+            <text class="zj">{{yixuan}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="right" bindtap="addOrders" hover-class="clicked" wx:if="{{isCanClick}}">
+        <image src="/images/index/loading3.gif" hidden='{{cartBtnLoading}}'></image>生成订单
+      </view>
+      <view class="right"  hover-class="clicked" wx:else>
+        <image src="/images/index/loading3.gif" hidden='{{cartBtnLoading}}'></image>生成订单
+      </view>
+    </view>
+    <view class="footer" wx:else >
+      <view class="deleteIco" bindtap='delOrder'hover-class="clicked">删除</view>
+    </view>
+
+  </block>
+
+  <!--暂无数据-->
+  <block wx:if="{{allGoods.length==0 && noNetWork!=true}}">
+    <view>
+      <view class="cart-empty">
+        <span class='{{carPic}}'></span>
+      </view>
+      <view class="msg">{{noData}}</view>
+    </view>
+  </block>
+
+</scroll-view>
+
+<!--加载-->
+<view class="bj" wx:if='{{bj}}'>
+  <import src="/loading/loading.wxml" />
+  <template is="wxLoading" data="{{...wxToastConfig}}"></template>
+</view>
+
+<view wx:if="{{noNetWork}}" class="no_network">
+  <view>网络繁忙，请稍候再试
+    <text bindtap='refresh'>刷新</text>
+  </view>
+</view>

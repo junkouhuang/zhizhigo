@@ -1,0 +1,64 @@
+<import src="../../toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<view class="card">
+  <view class="cardList">
+    <block  wx:if="{{bankList.length>0}}">
+      <view style='height:{{_height}}px;background-color:{{item.color}}'  wx:for="{{bankList}}" wx:for-item="item" >
+        <view class="title"   hover-class="clicked">
+          <view><span class="{{item.class}}"></span></view>
+          <view class="bank"data-acctno="{{item.acctno}}"  bindtap="wyPayFun"  data-moblie="{{item.mobile}}">
+            <view>{{item.bankname}}</view>
+            <view class="type">{{item.accttype==00?'储蓄卡':'信用卡'}}</view>
+            <view class="cardNo">{{item.star}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view wx:else>
+      <p>暂无银行卡</p>
+      <view class="add" bindtap='addFun'  hover-class="clicked">
+      <span>+</span>
+      <text>添加银行卡</text>
+    </view>
+    </view>
+  </view>
+</view>
+
+<!--输入钱包密码-->
+<view wx:if="{{wallets_password_flag}}" class="wallets-password">
+  <view class="input-content-wrap">
+    <view class="top">
+      <view catchtap="close_wallets_password" class="close">×</view>
+      <view class="txt">请输入值值钱包密码</view>
+      <view catchtap="modify_password" class="forget">
+        <!--忘记密码-->
+      </view>
+    </view>
+    <view class="actual_fee">
+      <span>￥</span>
+      <text>{{zzmcTotalFeezj}}</text>
+    </view>
+    <view catchtap="set_Focus" class="input-password-wrap">
+      <view class="password_dot">
+        <i wx:if="{{zzpass.length>=1}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{zzpass.length>=2}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{zzpass.length>=3}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{zzpass.length>=4}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{zzpass.length>=5}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{zzpass.length>=6}}"></i>
+      </view>
+    </view>
+  </view>
+  <input bindinput="set_wallets_password" class="input-content" password type="number" focus="{{isFocus}}" maxlength="6" />
+
+</view>

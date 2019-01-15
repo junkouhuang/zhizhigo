@@ -1,0 +1,90 @@
+<import src="../../toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<form bindsubmit="toOpenVipCard">
+<!--会员-->
+<view class="user">
+  <text>会员</text>
+  <view><text>姓名</text><input placeholder='请输入姓名' maxlength='20' name="userName"/></view>
+  <view>
+    <text>性别</text>
+    <picker bindchange="selSex" value="{{index}}" range="{{sexArray}}">
+      <view class="sexHintView" wx:if="{{sexBoolean}}">
+        请选择性别
+      </view>
+      <view class="picker" wx:else>
+        {{sexArray[index]}}
+      </view>
+    </picker>
+    <span class="iconfont icon-unie61f"></span>
+  </view>
+  <view><text>身份证</text><input placeholder='请输入身份证号' maxlength='18' name="idno" type='idcard' /></view>
+  <view><text>手机</text><input placeholder='请输入手机号11位' maxlength='11' name="mobile"  type="number" /></view>
+  <view>
+    <text>生日</text>
+    <picker mode="date"  bindchange="selBorn" value="{{index}}"  start="1950-09-01" end="2018-08-01">
+      <view class="bornHintView" wx:if="{{bornBoolean}}">
+        请选择出生日期
+      </view>
+      <view class="picker" wx:else>
+        {{born}}
+      </view>
+    </picker>
+    <span class="iconfont icon-unie61f"></span>
+  </view>
+  <view>
+    <text>省/市/区</text>
+    <picker mode="region" bindchange="selProvice" value="{{region}}" custom-item="{{customItem}}">
+     <view class="proviceHintView" wx:if="{{proviceBoolean}}">
+        请选择省/市/区(县)
+      </view>
+      <view class="picker" wx:else>
+        {{region[0]}}，{{region[1]}}，{{region[2]}}
+      </view>
+    </picker>
+    <span class="iconfont icon-unie61f"></span>
+  </view>
+</view>
+<!--卡信息-->
+<view class="card">
+  <text>卡信息</text>
+  <view><text>会员卡号</text><input  placeholder='请输入会员卡号6或11位' name="acctno"  maxlength='11'  type='number' /></view>
+  <view>
+    <text>卡类型</text>
+    <picker bindchange="selCardType" value="{{start}}" range="{{cardTypeArray}}">
+          <view class="cardTypeHintView" wx:if="{{cardTypeBoolean}}">
+            请选择卡类型
+          </view>
+          <view class="picker" wx:else>
+            {{cardTypeArray[start]}}
+          </view>
+        </picker>
+    <span class="iconfont icon-unie61f"></span>
+  </view>
+  <view><text>密码</text><input  placeholder='请输入密码' name="password" maxlength='6'   type="password" /></view>
+  <view>
+    <text>首次充值</text>
+    <picker bindchange="selMoney" value="{{index}}" range="{{moneyArray}}">
+      <view class="moneyHintView" wx:if="{{moneyBoolean}}">
+        请选择首次充值金额
+      </view>
+      <view class="picker" wx:else>
+        {{moneyArray[money]}}元
+      </view>
+    </picker>
+    <span class="iconfont icon-unie61f"></span>
+  </view>
+  <view>
+    <text>折扣级别</text>
+    <picker bindchange="selZkjb" value="{{begin}}" range="{{zkjbArray}}">
+        <view class="zkjbHintView" wx:if="{{zkjbBoolean}}">
+          请选择折扣级别
+        </view>
+        <view class="picker" wx:else>
+          {{zkjbArray[begin]}}
+        </view>
+    </picker>
+    <span class="iconfont icon-unie61f"></span>
+  </view>
+  <button formType="submit"  hover-class="clicked">开卡支付</button>
+</view>
+</form>

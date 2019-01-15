@@ -1,0 +1,62 @@
+<import src="../../toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<form  bindsubmit="submit">
+<view class="login-container">
+  <view class="mobile-login-content">
+    <view class="mobile-login-number">
+      <view class="mobile-login-number-txt">
+        <input placeholder="请输入用户名" name="username" maxlength="12" value='{{username}}' focus='{{userauto}}' bindinput="userNameInput" bindblur='userNameInput'/>
+      </view>
+      <view class="mobile-login-number-img">
+        <span wx:if="{{!obliterate}}" bindtap="clearusername" class="iconfont icon-cuowu"></span>
+      </view>
+    </view>
+
+    <view class="mobile-login-pwd">
+      <view class="mobile-login-pwd-txt">
+        <input type="{{mold}}" placeholder="请输入密码" name="password" bindinput="pwdInput" maxlength="12" value="{{inputpwd}}" auto-focus='{{passauto}}' />
+      </view>
+      <view class="mobile-login-pwd-img">
+        <view class="eliminate">
+          <span wx:if="{{!eliminate}}" bindtap="clearpwd" class="iconfont icon-cuowu"></span>
+        </view>
+        <view class="conceal" style="display:{{conceal}}">
+          <span bindtap="show" class="iconfont icon-yanjing-bi1"></span>
+        </view>
+        <view class="ensconce" style="display:{{ensconce}}">
+          <span class="iconfont icon-yanjing-bi2" bindtap="hide"></span>
+        </view>
+      </view>
+      <!--<view class="mobile-login-pwd-txt" wx:if="{{mold=='number'}}">
+        <input password type="number" placeholder="请输入密码" bindinput="pwdInput" maxlength="6" value="{{inputpwd}}" focus='{{passauto}}' />
+      </view>
+      <view class="mobile-login-pwd-txt" wx:else>
+        <input  type="number" placeholder="请输入密码" bindinput="pwdInput" maxlength="6" value="{{inputpwd}}" focus='{{passauto}}' />
+      </view>-->
+
+    </view>
+
+    <view class="mobile-login-vcode">
+      <view class="mobile-login-vcode-txt">
+        <input value="{{imagecode}}" type="number" placeholder="请输入验证码" name="imagecode" maxlength="4"  bindinput="imagecodeInput"/>
+      </view>
+      <view class="security ">
+        <span class="iconfont icon-cuowu"  wx:if="{{!security}}" bindtap="clearsecurity"></span>
+      </view>
+      <view class="mobile-login-vcode-img {{refresh}}" bindtap='getvcode'>
+        <image src="{{imgUrl}}"></image>
+      </view>
+    </view>
+  </view>
+  <button class="mobile-login-submit"   formType="submit" hover-class="clicked">立即登录</button>
+  <view class="login-footer">
+    <text>点击登录即表示同意</text>
+    <text class="agree-txt">《值值用户协议》</text>
+  </view>
+  
+  <view class="login-article-weixin" >
+    <span class="iconfont icon-weixin" bindtap="tapWeixinLogin"  hover-class="clicked"></span>
+    <text bindtap="tapWeixinLogin"  hover-class="clicked">使用微信账号登录</text>
+  </view>
+</view>
+</form>

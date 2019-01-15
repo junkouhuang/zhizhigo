@@ -1,0 +1,36 @@
+<import src="/toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<view>
+<view class="address-list">
+  <view class="address-list-box" >
+    <view class="address-list-box-name">
+      <text class="address-list-box-name-left">{{shrxm}}，</text><text class="address-list-box-name-right">{{lxdh}}</text>
+    </view>
+    <view class="address-list-box-addr">
+      {{shdz}}
+    </view>
+  </view>
+  <view class="bar">
+      <view class="default">
+          <icon type="success" color="#53a24f" bindtap="selectList" data-index="{{index}}"  size="16"/>
+          <text>已设为默认</text>
+      </view>
+      <view class="editor">
+          <span class="iconfont icon-jianzhuanquan"></span>
+          <text>编辑</text>
+      </view>
+      <view class="delete">
+          
+          <span class="iconfont icon-shanchu"></span>
+          <text>删除</text>
+      </view>
+  </view>
+</view>
+<view class="addNewAddress-btn" bindtap="addNewAddress">添加新地址</view>
+</view>
+
+<view class="bj" wx:if='{{bj}}'>
+    <import src="/loading/loading.wxml" />
+    <template is="wxLoading" data="{{...wxToastConfig}}"></template>
+</view>
+

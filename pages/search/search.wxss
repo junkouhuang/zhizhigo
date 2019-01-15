@@ -1,0 +1,111 @@
+.search {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row nowrap;
+  position: relative;
+  top: 20rpx;
+  z-index: 999;
+}
+
+.search-ico {
+  width: 10%;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+
+.search-mc {
+  width: 90%;
+  height: 100%;
+}
+
+.search-ico icon {
+  position: relative;
+  top: 6rpx;
+}
+
+.search-mc input {
+  width: 100%;
+  height: 60rpx;
+  font-size:30rpx;
+}
+
+.search-panel {
+  width:75%;
+  height: 60rpx;
+  background-color: #f7f7f7;
+  border-radius: 50rpx;
+  position: relative;
+  top: 16rpx;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row nowrap;
+  border: 2rpx solid #ededed;
+  margin-left: 5%;
+}
+.search-view {
+  width:16%;
+  margin: 0 2%;
+  font-size:15px;
+  background: #53a24f;
+  color: #fff;
+  text-align: center;
+  height:60rpx;
+  margin-top:16rpx;
+  line-height: 60rpx;
+  border-radius:8rpx;
+}
+
+.listory-txt {
+  font-size: 36rpx;
+  position:relative;
+  top:20rpx;
+  width:100%;
+  height:80rpx;
+}
+
+.listory-list view {
+  margin-left: 20rpx;
+  background: #ededed;
+  border-radius: 40rpx;
+  font-size:30rpx;
+  display: inline-block;
+  margin-bottom:10rpx;
+}
+
+.listory-list text {
+  padding-left: 24rpx;
+  padding-right:14rpx;
+  position:relative;
+  top:-4rpx;
+}
+
+.listory-list span {
+  position:relative;
+  top:-13rpx;
+  right:-10rpx;
+
+}
+
+.seek {
+  position: absolute;
+  left:20rpx;
+  font-size:30rpx;
+}
+
+.clear {
+  position: absolute;
+  right: 20rpx;
+  font-size:30rpx;
+}
+
+.listory-list {
+  width:90%;
+  margin-left:5%;
+}
+.wxToast_mask {
+  top:50%;
+}

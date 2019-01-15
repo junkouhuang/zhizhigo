@@ -1,0 +1,49 @@
+<import src="/toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<view class="pay">
+  <view bindtap='inputBalance' class="save" disabled="{{isCanClick}}">
+  修改值值宝密码
+  </view>
+</view>
+<!--输入钱包密码-->
+<view wx:if="{{wallets_password_flag}}" class="wallets-password">
+  <view class="input-content-wrap">
+    <view class="top">
+      <view catchtap="close_wallets_password" class="close">×</view>
+      <view class="txt" style='width:70%;text-align:left;'><text>修改值值宝密码</text></view>
+     
+    </view>
+    <view class="actual_fee">
+      <view class="oldWalletPwd">
+        <view class="verification"><input type='number' bindinput='verification' maxlength='6' value='{{value1}}' placeholder='请输入验证码'/>
+        </view>
+        <view class="btn1"  wx:if="{{!showBoolean}}" >{{msg}}</view>
+         <view class="btn2 " bindtap='sendUpdatePasswordVerification' wx:if="{{showBoolean}}" disabled="{{!showBoolean}}"  hover-class="clicked">获取验证码</view>
+      </view>
+    </view>
+    <view catchtap="set_Focus" class="input-password-wrap">
+      <view class="password_dot">
+        <i wx:if="{{newWalletPwd.length>=1}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{newWalletPwd.length>=2}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{newWalletPwd.length>=3}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{newWalletPwd.length>=4}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{newWalletPwd.length>=5}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{newWalletPwd.length>=6}}"></i>
+      </view>
+    </view>
+    <view class="btn" bindtap='updateWalletPassword' >
+      <button  hover-class="clicked">确定修改</button>
+    </view>
+  </view>
+  <input bindinput="set_wallets_password" class="input-content" password type="number" focus="{{isFocus}}" maxlength="6" />
+</view>

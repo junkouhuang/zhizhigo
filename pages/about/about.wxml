@@ -1,0 +1,14 @@
+<view class="about">
+  <view><image src="/images/about/zhizhi.png"></image></view>
+	<view class="about-item">
+		<text class="about-item-title">值值平台</text>
+		<text class="about-item-content">小程序持续更新中...</text>
+	</view>
+	<view class="about-item">
+		<text class="about-item-beta">当前版本</text>
+		<text class="about-item-version "> v3.8.5 Beta</text>
+    <text class="about-item-beta">更新时间</text>
+		<text class="about-item-version "> 2019-01-10 </text>
+   <!-- <navigator url="../update/update">更新内容</navigator>-->
+	</view>
+</view>

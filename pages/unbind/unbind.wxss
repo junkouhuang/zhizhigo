@@ -1,0 +1,42 @@
+page {
+  background: #f5f5f5;
+}
+.unbind {
+  width: 100%;
+  margin-top: 80rpx;
+}
+.unbind view:nth-child(1){
+  font-size: 30rpx;
+  color: #cccccc;
+  margin-left: 40rpx;
+  margin-bottom:12rpx;
+}
+.unbind view:nth-child(2) {
+  width:98%;
+  height: 90rpx;
+  margin-left:1%;
+  background: #ffffff;
+}
+.unbind>view input {
+  width: 100%;
+  margin-left: 2%;
+  height:90rpx;
+  line-height:90rpx;
+  font-size:36rpx;
+}
+.next {
+  background-color:#53a24f;
+  color:#ffffff;
+  margin-top:40rpx;
+  width:98%;
+  height:90rpx;
+  line-height:90rpx;
+  font-size:40rpx;
+  text-align:center;
+  margin-left:1%;
+  border-radius:8rpx;
+}
+
+.wxToast_content {
+  top:60%;
+}

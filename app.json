@@ -1,0 +1,85 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/classify/classify",
+    "pages/cart/cart",
+    "pages/account/account",
+    "pages/listory/listory",
+    "pages/subclass/subclass",
+    "pages/returnCart/returnCart",
+    "pages/user/user",
+    "pages/detail/detail",
+    "pages/order/order",
+    "pages/address/address",
+    "pages/about/about",
+    "pages/password/password",
+    "pages/pay/pay",
+    "pages/wallet/wallet",
+    "pages/openWallet/openWallet",
+    "pages/record/record",
+    "pages/other/other",
+    "pages/balance/balance",
+    "pages/goods/goods",
+    "pages/syb/syb",
+    "pages/sign/sign",
+    "pages/message/message",
+    "pages/myCard/myCard",
+    "pages/payMessage/payMessage",
+    "pages/unbind/unbind",
+    "pages/vipRecharge/vipRecharge",
+    "pages/vipList/vipList",
+    "pages/vipOpen/vipOpen",
+    "pages/search/search",
+    "pages/payMentCode/payMentCode",
+    "pages/update/update"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#53a24f",
+    "navigationBarTitleText": "值值平台",
+    "navigationBarTextStyle": "#fff",
+    "backgroundColor": "#53a24f"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "iconPath": "images/toolbar/home_black.png",
+        "selectedIconPath": "images/toolbar/home.png",
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "color": "#1ab394",
+        "selectedColor": "#1ab394"
+      },
+      {
+        "iconPath": "images/toolbar/classify_black.png",
+        "selectedIconPath": "images/toolbar/classify.png",
+        "pagePath": "pages/classify/classify",
+        "text": "分类",
+        "color": "#1ab394",
+        "selectedColor": "#1ab394"
+      },
+      {
+        "iconPath": "images/toolbar/cart_black.png",
+        "selectedIconPath": "images/toolbar/cart.png",
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "color": "#8a8a8a",
+        "selectedColor": "#1ab394"
+      },
+      {
+        "iconPath": "images/toolbar/user_black.png",
+        "selectedIconPath": "images/toolbar/user.png",
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "color": "#8a8a8a",
+        "selectedColor": "#1ab394"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

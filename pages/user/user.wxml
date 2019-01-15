@@ -1,0 +1,61 @@
+<import src="/toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{!hasUserInfo && canIUse}}">
+      <view class="userinfo-avatarUrl">
+        <span  class="userinfo-avatar iconfont icon-touxiang" ></span>
+        <button  open-type="getUserInfo" bindgetuserinfo="getUserInfo">点击重试</button>
+      </view>
+      <view class="userinfo-nickName">
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <view class="userinfo-flex">
+          </view>
+          <view class="userinfo-mdmc">
+            门店名称： {{mdmc}}
+          </view>
+          <view class="userinfo-mdcode"> 
+          <view class="mdcode">门店代码： {{mdcode}}</view>
+          <navigator class="userinfo-pwd" url="/pages/password/password">
+              <span class="iconfont icon-xiugai07"></span>
+              <text>修改登录密码</text>
+          </navigator>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="userinfo-avatarUrl">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      </view>
+      <view class="userinfo-nickName">
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <view class="userinfo-flex">
+          <view class="userinfo-mdmc">
+            门店名称： {{mdmc}}
+          </view>
+          <view class="userinfo-mdcode"> <view class="mdcode">门店代码： {{mdcode}}</view>
+            <navigator class="userinfo-pwd" url="/pages/password/password">
+              <span class="iconfont icon-xiugai07"></span>
+              <text>修改登录密码</text>
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="horizontal">
+  <navigator wx:for="{{items1}}"  url="{{ item.path }}"  class="horizontal_item1">
+      <span class="{{item.icon}}"></span>
+      <text>{{item.text}}</text>
+  </navigator>
+  </view>
+  <view class="horizontal">
+  <navigator wx:for="{{items2}}"  url="{{ item.path }}"  class="horizontal_item2">
+      <span class="{{item.icon}}"></span>
+      <text>{{item.text}}</text>
+  </navigator>
+  </view>
+  <view class="wode_out" bindtap='bindopenid'  >绑定</view>
+  <view class="wode_login" bindtap='exit' >退出</view>
+</view>

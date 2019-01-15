@@ -1,0 +1,434 @@
+page {
+  background: #efeff2;
+}
+
+ .pay {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.pay view {
+  position: relative;
+  left:20rpx;
+}
+
+ .pay .title {
+  height: 180rpx;
+  padding: 0 23rpx;
+  border-bottom: 1rpx solid #ddd;
+  box-sizing: border-box;
+}
+
+.title .title_txt {
+  width:100%;
+  height:40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  text-align:center;
+  margin-top: 40rpx;
+}
+
+.title_money {
+  width:100%;
+  height:80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 60rpx;
+  color: #53a24f;
+  font-weight: bold;
+}
+
+.title_money_symbol {
+  font-size: 32rpx;
+}
+
+ .pay .wx_pay,  .pay .offline_pay,  .pay .wallet_pay {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 2rpx solid #ddd;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+ .pay .wx_pay .icon,  .pay .offline_pay .icon,
+ .pay .wallet_pay .icon {
+  width: 34rpx;
+  height: 34rpx;
+  border: 2rpx solid #ddd;
+  box-sizing: border-box;
+  border-radius: 50%;
+  margin-left: 20rpx;
+}
+
+ .pay .wx_pay .icon.active,  .pay .offline_pay .icon.active,
+ .pay .wallet_pay .icon.active {
+  border: 10rpx solid #53a24f;
+}
+
+ .pay .wx_pay text,  .pay .offline_pay text,  .pay .wallet_pay text {
+  margin-left: 20rpx;
+  color: #353535;
+  font-size: 32rpx;
+}
+
+ .pay .wallet_pay {
+  border: 0;
+  border-top: 2rpx solid #ddd;
+}
+
+ .pay .offline_pay {
+  border: 0 none;
+}
+
+ .save {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #fff;
+  font-size: 36rpx;
+}
+
+ .save image {
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  top:4rpx;
+}
+
+ .wallets-password {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #333;
+}
+
+ .wallets-password .input-content-wrap {
+  position: absolute;
+  top: 200rpx;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 576rpx;
+  margin-left: -288rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  z-index: 0;
+  height:439rpx;
+}
+
+ .wallets-password .input-content-wrap .top {
+  display: flex;
+  align-items: center;
+  height: 90rpx;
+  border-bottom: 2rpx solid #ddd;
+  justify-content: space-around;
+}
+
+ .wallets-password .input-content-wrap .top .close {
+  font-size: 44rpx;
+  color: #999;
+  font-weight: 100;
+  width: 30%;
+  text-align: center;
+}
+
+ .wallets-password .input-content-wrap .top .forget {
+  color: #53a24f;
+  font-size: 22rpx;
+}
+
+ .wallets-password .input-content-wrap .actual_fee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  height: 100rpx;
+  margin: 0 23rpx;
+  border-bottom: 2rpx solid #ddd;
+}
+
+ .wallets-password .input-content-wrap .actual_fee span {
+  font-size: 24rpx;
+}
+
+ .wallets-password .input-content-wrap .actual_fee text {
+  font-size: 36rpx;
+}
+
+ .wallets-password .input-content-wrap .input-password-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 130rpx;
+}
+
+ .wallets-password .input-content-wrap .input-password-wrap .password_dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #000;
+  box-sizing: border-box;
+  width: 86rpx;
+  height: 86rpx;
+  border: 2rpx solid #ddd;
+  border-left: none 0;
+}
+
+ .wallets-password .input-content-wrap .input-password-wrap .password_dot:nth-child(1) {
+  border-left: 2rpx solid #ddd;
+}
+
+ .wallets-password .input-content-wrap .input-password-wrap .password_dot i {
+  background: #000;
+  border-radius: 50%;
+  width: 20rpx;
+  height: 20rpx;
+}
+
+ .wallets-password .input-content {
+  position: absolute;
+  opacity: 0;
+  left: -100%;
+  top: 600rpx;
+  background: #f56;
+  z-index: -999;
+}
+
+ .wallets-password .input-content.active {
+  z-index: -99;
+}
+
+.pay_detail {
+  width: 100%;
+  margin-bottom: 40rpx;
+}
+
+.pay_detail_top {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row nowrap;
+}
+
+.pay_detail_top_line1 {
+  width: 30%;
+  height: 20rpx;
+  margin-left: 2%;
+  margin-right: 8%;
+  border-bottom: 2rpx solid #ddd;
+}
+
+.pay_detail_top_txt {
+  width: 20%;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+.pay_detail_top_line2 {
+  width: 30%;
+  height: 20rpx;
+  margin-left: 8%;
+  margin-right: 2%;
+  border-bottom: 2rpx solid #ddd;
+}
+
+.pay_detail_title {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row nowrap;
+}
+
+.pay_detail_title_dh1 {
+  width: 25%;
+  font-size: 32rpx;
+  text-align: right;
+}
+
+.pay_detail_title_dh2 {
+  width: 34%;
+  margin-right: 1%;
+  border-bottom: 2rpx solid #ddd;
+}
+
+.pay_detail_title_je1 {
+  width: 15%;
+  font-size: 32rpx;
+  text-align: right;
+}
+
+.pay_detail_title_je2 {
+  width: 20%;
+  margin-right: 5%;
+  border-bottom: 2rpx solid #ddd;
+  text-align: center;
+}
+
+.pay_detail_content {
+  width: 98%;
+  margin-left: 1%;
+  border: 2rpx solid #ddd;
+  border-radius: 12rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.pay_detail_content_title {
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row nowrap;
+}
+
+.pay_detail_content_title_dh {
+  width: 43%;
+  height: 100%;
+  border-right: 2rpx solid #ddd;
+  font-size: 14px;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.pay_detail_content_title_je {
+  width: 17%;
+  height: 100%;
+  border-right: 2rpx solid #ddd;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.pay_detail_content_title_sj {
+  width: 40%;
+  height: 100%;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.pay_detail_content_title_ordercode {
+  font-size: 26rpx;
+  width: 43%;
+  height: 100%;
+  border-right: 2rpx solid #ddd;
+  text-align: center;
+  line-height: 60rpx;
+  border-top: 2rpx solid #ddd;
+}
+
+.pay_detail_content_title_orderamount {
+  font-size: 26rpx;
+  width: 17%;
+  height: 100%;
+  border-right: 2rpx solid #ddd;
+  text-align: center;
+  line-height: 60rpx;
+  border-top: 2rpx solid #ddd;
+}
+
+.pay_detail_content_title_createtime {
+  font-size: 26rpx;
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  line-height: 60rpx;
+  border-top: 2rpx solid #ddd;
+}
+
+ .oldWalletPwd {
+  width:516rpx;
+  height: 80rpx;
+  margin-left: -10rpx;
+  position: relative;
+  border: 2rpx solid #efeff2;
+  display: flex;
+  flex-wrap: row;
+}
+
+ .oldWalletPwd  .verification {
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-left: 4%;
+}
+
+ .oldWalletPwd input {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size:32rpx;
+}
+
+.oldWalletPwd .btn1 {
+  width: 44%;
+  height: 72rpx;
+  line-height: 72rpx;
+  border: 2rpx solid #ededed;
+  text-align: center;
+  margin-left: 2%;
+  margin-top:2rpx;
+  font-size:32rpx;
+  border-radius:14rpx;
+  background:#ededed;
+  color:#333;
+}
+.oldWalletPwd .btn2 {
+  width: 44%;
+  height: 72rpx;
+  line-height: 72rpx;
+  border: 2rpx solid #ededed;
+  text-align: center;
+  margin-left: 2%;
+  margin-top:2rpx;
+  font-size:32rpx;
+  border-radius:14rpx;
+  background:#53a24f;
+  color:#fff;
+}
+
+.wxapp-content .btn {
+  width: 516rpx;
+  height: 80rpx;
+  position: absolute;
+  bottom: 20rpx;
+  margin-left:40rpx;
+  line-height:80rpx;
+
+}
+
+.wxapp-content .btn button{
+  width: 100%;
+  height: 100%;
+  font-size:30rpx;
+  padding: 0;
+  margin: 0;
+  background:#53a24f;
+  color:#fff;
+}
+.btn {
+  width: 516rpx;
+  height: 80rpx;
+  position: absolute;
+  bottom: 18rpx;
+  margin-left:26rpx;
+  line-height:80rpx;
+
+}
+
+.btn button{
+  width: 100%;
+  height: 100%;
+  font-size:30rpx;
+  padding: 0;
+  margin: 0;
+  background:#53a24f;
+  color:#fff;
+}

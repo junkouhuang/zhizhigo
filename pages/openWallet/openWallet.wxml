@@ -1,0 +1,37 @@
+<import src="/toast/toast.wxml" />
+<template is="wxToast" data="{{...wxToastConfig}}"></template>
+<view class="openWaller">
+  <view class="openWaller-container">
+    <view class="openWaller-container-card">
+      <!--<view class="openWaller-container-card-txt">身份证号</view>-->
+      <view class="openWaller-container-card-inp">
+        <input bindinput='inputCard' placeholder='身份证号'></input>
+      </view>
+    </view>
+    <view class="openWaller-container-phone">
+      <!--<view class="openWaller-container-phone-txt">手机号</view>-->
+      <view class="openWaller-container-phone-inp">
+        <input type='number' bindinput='inputPhone' maxlength='11' placeholder="手机号"></input>
+      </view>
+      <view class="openWaller-container-phone-btn">
+        <button bindtap='sendVerificationCode' disabled='{{disabled}}'>{{msg}}</button>
+      </view>
+    </view>
+    <view class="openWaller-container-verification ">
+      <!--<view class="openWaller-container-verification-txt">验证码</view>-->
+      <view class="openWaller-container-verification-inp">
+        <input type="number" bindinput='inputVerification' maxlength='6' placeholder='验证码'></input>
+      </view>
+    </view>
+    <view class="openWaller-container-pwd">
+      <!--<view class="openWaller-container-pwd-txt">支付密码</view>-->
+      <view class="openWaller-container-pwd-inp">
+        <input bindinput="inputPwd"  password type="number"  placeholder='支付密码,6位数字'  value="{{pwd}}"   maxlength="6"/>
+        <!--<input type='number'  maxlength='6' bindinput='inputPwd' placeholder='支付密码'></input>-->
+      </view>
+    </view>
+  </view>
+  <view class="openWaller-btn"  hover-class="clicked">
+    <view class="confirm" bindtap='openWalletAccount'>确定</view>
+  </view>
+</view>
